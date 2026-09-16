@@ -4,9 +4,7 @@ Personal site of **Krish Masand** — web, Android and AI/ML developer.
 To be published at <https://krishmasand7.github.io> (not live yet).
 
 A static, single-page site: hand-written HTML, CSS and JavaScript with no framework
-runtime and no dependencies. `node build.mjs` is the entire pipeline. The design and
-build are adapted from [gauravmasand.github.io](https://github.com/gauravmasand/gauravmasand.github.io).
-
+runtime and no dependencies. `node build.mjs` is the entire pipeline.
 ---
 
 ## Editing the content
