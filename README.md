@@ -1,110 +1,141 @@
-# krishmasand7.github.io
+# Krish Masand — Portfolio
 
-Personal site of **Krish Masand** — web, Android and AI/ML developer.
-To be published at <https://krishmasand7.github.io> (not live yet).
+[![Live site](https://img.shields.io/badge/live-krishmasand7.github.io-7ba3ff?style=flat-square)](https://krishmasand7.github.io)
+[![Build](https://github.com/KrishMasand7/krishmasand7.github.io/actions/workflows/build.yml/badge.svg)](https://github.com/KrishMasand7/krishmasand7.github.io/actions/workflows/build.yml)
 
-A static, single-page site: hand-written HTML, CSS and JavaScript with no framework
-runtime and no dependencies. `node build.mjs` is the entire pipeline.
+Personal portfolio of **Krish Masand**, a B.Tech Computer Science & Engineering student at
+Sipna College of Engineering & Technology, Amravati. I build web and Android apps, and I work
+with machine learning in Python.
+
+**→ [krishmasand7.github.io](https://krishmasand7.github.io)**
+
+[![Screenshot of the portfolio's opening screen](.github/preview.webp)](https://krishmasand7.github.io)
+
 ---
 
-## Editing the content
+## What's on the site
 
-Everything the page says lives in two files. Edit them, run `npm run build`, done.
-
-| File | What is in it |
+| Section | Contents |
 | --- | --- |
-| `src/content/profile.mjs` | name, roles, links, hero text and stats, About section, photo |
-| `src/content/work.mjs` | projects, journey (education + internship), honours, certifications, skills, contact text |
+| **About** | Who I am, where I study, and the two sides of my work: web & Android, and AI/ML |
+| **Projects** | FixMyCity (Android civic-complaints app), Task Manager (Node.js, Express, MongoDB), Amazon Homepage Clone (HTML & CSS) |
+| **Journey** | B.Tech at Sipna College, Android development internship at UEF Pvt. Ltd., diploma from Dr. Panjabrao Deshmukh Polytechnic |
+| **Skills** | Languages, frontend, backend & databases, Android, machine learning, core CS, tools |
+| **Contact** | Email, GitHub and LinkedIn |
 
-- **Add a project:** copy an entry in `projects`. `metrics`, `highlights`, `period` and
-  `links` are optional; leave out anything you do not have.
-- **Add a hackathon or award:** add an entry to `honours`. The Honours section and its
-  nav link appear automatically once there is at least one.
-- **Add a certificate:** add an entry to `certifications`; it shows under the journey.
-- The hero's "technologies" and "projects" numbers are counted from the lists, so they
-  stay correct on their own.
+## Features
 
-Generated files at the repository root (`index.html`, `404.html`, `assets/`,
-`favicon.svg`, `sitemap.xml`, …) are overwritten by every build. Edit `src/`, not them.
+- **Dark and light themes.** Follows the device setting; the toggle in the nav overrides it and is remembered.
+- **Animated hero.** A rolling 3D wave of lines drawn on a canvas, shading from blue (web) to gold (ML). It pauses when scrolled out of view and is skipped on phones and for anyone with reduced motion turned on.
+- **Colour with meaning.** Blue marks web and Android work, gold marks AI/ML, across the whole page.
+- **Email that always works.** If a visitor's device has no email app, "Email me" offers Gmail and Outlook compose links and copies the address.
+- **Works without JavaScript.** Every section is readable and every project panel is open with scripts off.
+- **Small and fast.** About 15 kB of HTML (gzipped), 24 kB of JavaScript, self-hosted fonts, and no third-party requests.
+
+## Built with
+
+- HTML, CSS and JavaScript — no framework and no npm dependencies
+- A single Node.js build script (`build.mjs`) that renders the page from content files
+- Canvas 2D for the hero animation
+- GitHub Pages for hosting, GitHub Actions to check every push
 
 ---
+
+## Run it locally
+
+Needs [Node.js](https://nodejs.org) 20 or newer. There is nothing to install.
+
+```bash
+git clone https://github.com/KrishMasand7/krishmasand7.github.io.git
+cd krishmasand7.github.io
+npm run serve
+```
+
+Then open <http://localhost:4321>.
+
+## Updating the content
+
+Everything the page says lives in two files:
+
+| File | What to edit there |
+| --- | --- |
+| `src/content/profile.mjs` | name, roles, links, hero text, About section, photo |
+| `src/content/work.mjs` | projects, journey, honours, certifications, skills, contact text |
+
+1. Edit one of those files.
+2. Run `npm run build`.
+3. Commit and push. The live site updates within a minute or two.
+
+```bash
+git add -A
+git commit -m "Update portfolio"
+git push
+```
+
+A few things happen automatically:
+
+- The hero's "technologies" and "projects" counts are worked out from the lists.
+- Adding the first entry to `honours` makes an Honours section and nav link appear.
+- Adding an entry to `certifications` shows it under the journey.
+
+Don't edit `index.html`, `404.html` or `assets/` directly; they are regenerated on every build.
 
 ## Commands
 
-```bash
-npm run build       # build once
-npm run dev         # rebuild whenever src/ changes
-npm run serve       # build, then preview at http://localhost:4321
-npm run check       # build, then run the static checks
-npm run links       # check every external link (needs internet)
-npm run portraits   # re-cut the photo in src/photos/ (needs Chrome or Edge)
-npm run icons       # regenerate og.png, favicon.ico, apple-touch-icon.png (needs Chrome or Edge)
-```
+| Command | What it does |
+| --- | --- |
+| `npm run build` | Build the site once |
+| `npm run dev` | Rebuild whenever `src/` changes |
+| `npm run serve` | Build, then preview at http://localhost:4321 |
+| `npm run check` | Build, then run the static checks |
+| `npm run links` | Check every external link (needs internet) |
+| `npm run portraits` | Cut the photo in `src/photos/` out of its background (needs Chrome or Edge) |
+| `npm run icons` | Regenerate the social preview image and icons (needs Chrome or Edge) |
 
-Needs Node.js 20 or newer. No `npm install` — there are no dependencies.
-
----
-
-## Layout
+## Project structure
 
 ```
-build.mjs               the whole build — reads src/, writes the site to the repo root
-serve.mjs               local preview server (never deployed)
+build.mjs               the build — reads src/, writes the site to the repository root
+serve.mjs               local preview server
 src/
   content/              profile.mjs and work.mjs — every fact on the page
-  templates/page.mjs    renders index.html from the content
-  styles/*.css          inlined into the page at build time; colours only in 01-tokens.css
-  scripts/main.js       theme, navigation, reveals, disclosures, counters
+  templates/page.mjs    turns the content into index.html
+  styles/               CSS, inlined at build time; all colours live in 01-tokens.css
+  scripts/main.js       theme, navigation, animations, project panels, email fallback
   scripts/wave.js       the hero animation
-  photos/               original photo — input to make-portraits, not published
-  static/               fonts and generated images, copied as-is
+  photos/               original photo (input to make-portraits)
+  static/               fonts and generated images
 scripts/
-  verify.mjs            static checks on the output
-  check-links.mjs       resolves every external link
-  make-portraits.mjs    cuts the subject out of a studio photo onto transparency
-  make-icons.mjs        renders og.png and the icons from og-card.html
-  chrome.mjs            tiny headless-Chrome driver both of those use
+  verify.mjs            static checks on the built site
+  check-links.mjs       external link checker
+  make-portraits.mjs    removes the background from the portrait photo
+  make-icons.mjs        renders og.png, favicon.ico and apple-touch-icon.png
+  chrome.mjs            small headless-Chrome helper used by the two scripts above
 ```
 
----
+### Changing the photo
 
-## Changing the photo
+Replace `src/photos/portrait-studio.jpg` with a photo taken against a plain, light background,
+run `npm run portraits`, and copy the size it prints into `w` and `h` under `portraits.studio`
+in `src/content/profile.mjs`.
 
-Replace `src/photos/portrait-studio.jpg` with a photo taken against a plain, light
-background, run `npm run portraits`, and copy the size it prints into `w` and `h` of
-`portraits.studio` in `src/content/profile.mjs`. Add `--preview <folder>` to also get
-a PNG of the cut-out on the dark and light backgrounds for checking.
+## Deployment
 
-The cut-out runs inside headless Chrome, so it works on Windows without installing
-anything. It keeps a white shirt even though the shirt is the same colour as the
-background, and softens hair edges so they do not leave a light fringe on the dark page.
+GitHub Pages serves this repository from the `main` branch, root folder. The built site is
+committed, so pushing to `main` publishes it; `.nojekyll` stops GitHub from reprocessing the files.
 
----
-
-## Going live (when ready)
-
-1. Create a public GitHub repository named exactly **`krishmasand7.github.io`** under
-   the `KrishMasand7` account.
-2. Push this folder to its `main` branch.
-3. In the repository, open **Settings → Pages** and set the source to
-   **Deploy from a branch**, branch `main`, folder `/ (root)`.
-
-The site then appears at <https://krishmasand7.github.io> within a minute or two.
-`.github/workflows/build.yml` does not deploy; it rebuilds on every push and fails if
-the committed output is out of date, so run `npm run build` before committing.
+The **Build** workflow in `.github/workflows/build.yml` doesn't deploy. It rebuilds the site on
+every push and fails if the committed files don't match, so remember to run `npm run build`
+before committing.
 
 ---
 
-## Design notes
+## Credits
 
-- **Two accents carry meaning.** Blue marks web and Android work, gold marks AI and
-  machine learning — in the hero roles, the About columns, the skill groups and the
-  timeline.
-- **Two palettes.** Dark is the default; light follows the system setting or the toggle
-  in the nav, and the choice is remembered. Every colour is defined once, in
-  `src/styles/01-tokens.css`.
-- **The hero animation** is a rolling 3D surface of ridgelines drawn on a canvas, each
-  line running from blue to gold. It pauses when scrolled away, and is skipped on small
-  screens and for anyone who has reduced motion turned on.
-- **Works without JavaScript.** Every section is readable and every project panel is
-  open with scripts disabled.
+- Fonts: [Inter](https://rsms.me/inter/) and [Newsreader](https://github.com/productiontype/Newsreader), under the SIL Open Font License.
+
+## Contact
+
+- Email: [krishmasand7@gmail.com](mailto:krishmasand7@gmail.com)
+- LinkedIn: [in/krish-masand-63264727a](https://www.linkedin.com/in/krish-masand-63264727a/)
+- GitHub: [@KrishMasand7](https://github.com/KrishMasand7)
