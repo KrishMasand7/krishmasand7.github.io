@@ -1,0 +1,26 @@
+/* ── No-JavaScript fallbacks ──────────────────────────────────────────────
+   The document must remain complete and navigable when the module fails to
+   load, is blocked, or has not run yet. Every control that only makes sense
+   with script is removed rather than left inert, and every panel that script
+   would collapse stays open. */
+
+html:not(.js) .project-toggle,
+html:not(.js) .filters,
+html:not(.js) .nav-toggle,
+html:not(.js) .nav-sheet,
+html:not(.js) .theme-toggle,
+html:not(.js) .progress { display: none; }
+
+/* Without the toggle the palette still follows the OS: the light rules in
+   01-tokens.css are a plain prefers-color-scheme media query, not scripted. */
+
+/* Disclosure headers stop pretending to be buttons. */
+html:not(.js) .project-head { cursor: default; grid-template-columns: 2.6rem minmax(0, 1fr); }
+
+/* The nav collapses to a static, wrapping row so its links still work. */
+@media (max-width: 900px) {
+  html:not(.js) .nav { position: static; height: auto; padding-block: 0.85rem 0.6rem; }
+  html:not(.js) .nav-inner { flex-wrap: wrap; row-gap: 0.6rem; }
+  html:not(.js) .nav-links { display: flex; flex-wrap: wrap; gap: 0.1rem; }
+  html:not(.js) .hero { padding-top: 2rem; }
+}

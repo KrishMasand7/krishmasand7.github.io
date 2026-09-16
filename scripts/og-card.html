@@ -1,0 +1,51 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+  @font-face{font-family:'Inter';src:url('../src/static/fonts/inter-latin-normal.woff2') format('woff2');font-weight:300 800}
+  @font-face{font-family:'Newsreader';src:url('../src/static/fonts/newsreader-latin-normal.woff2') format('woff2');font-weight:300 600}
+  *{margin:0;box-sizing:border-box}
+  body{width:1200px;height:630px;background:#08090c;color:#e9ebef;font-family:Inter,system-ui,sans-serif;
+       display:flex;flex-direction:column;justify-content:space-between;padding:72px 76px;position:relative;overflow:hidden}
+  .glow{position:absolute;inset:0;background:
+      radial-gradient(520px 420px at 88% 22%, rgba(123,163,255,.14), transparent 70%),
+      radial-gradient(460px 380px at 96% 84%, rgba(231,180,90,.10), transparent 70%)}
+  .net{position:absolute;right:40px;top:26px;width:560px;height:220px;opacity:.6}
+  .top{position:relative;display:flex;align-items:center;gap:14px;font-size:19px;letter-spacing:.14em;
+       text-transform:uppercase;color:#868f9d;font-family:ui-monospace,Menlo,Consolas,monospace}
+  .dot{width:11px;height:11px;border-radius:50%;background:#7ba3ff;box-shadow:0 0 0 6px rgba(123,163,255,.14)}
+  h1{position:relative;font-family:Newsreader,Georgia,serif;font-weight:400;font-size:118px;line-height:.94;letter-spacing:-.04em;margin-top:auto}
+  .roles{position:relative;margin-top:26px;font-size:30px;letter-spacing:-.015em;display:flex;gap:18px;align-items:center}
+  .roles .e{color:#7ba3ff}.roles .r{color:#e7b45a}.roles .s{width:6px;height:6px;border-radius:50%;background:#4d545f}
+  .foot{position:relative;margin-top:52px;padding-top:30px;border-top:1px solid rgba(255,255,255,.1);
+        display:flex;gap:56px}
+  .f b{display:block;font-family:Newsreader,Georgia,serif;font-size:40px;font-weight:400;letter-spacing:-.03em;line-height:1}
+  .f span{display:block;color:#868f9d;font-size:17px;margin-top:9px}
+  .f:nth-child(1) b,.f:nth-child(2) b,.f:nth-child(3) b{color:#7ba3ff}
+  .f:nth-child(4) b{color:#e7b45a}
+  .url{position:absolute;right:76px;bottom:72px;color:#767f8d;font-size:18px;
+       font-family:ui-monospace,Menlo,Consolas,monospace;letter-spacing:.04em}
+</style></head><body>
+<div class="glow"></div>
+<svg class="net" viewBox="0 8 120 64" preserveAspectRatio="none" aria-hidden="true">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#7ba3ff" stop-opacity="0"/><stop offset=".2" stop-color="#7ba3ff"/>
+    <stop offset=".8" stop-color="#e7b45a"/><stop offset="1" stop-color="#e7b45a" stop-opacity="0"/>
+  </linearGradient></defs>
+  <g fill="none" stroke="url(#g)" stroke-width=".7" stroke-linecap="round">
+    <path d="M4 22C24 22 34 10 54 12S88 26 116 18" opacity=".35"/>
+    <path d="M4 32C24 32 34 18 56 21S90 36 116 28" opacity=".5"/>
+    <path d="M4 42C24 42 36 26 58 30S92 46 116 38" opacity=".65"/>
+    <path d="M4 52C24 52 38 34 60 39S94 56 116 48" opacity=".8"/>
+    <path d="M4 62C24 62 40 42 62 48S96 66 116 58"/>
+  </g>
+</svg>
+<div class="top"><span class="dot"></span>Amravati, India</div>
+<h1>Krish Masand</h1>
+<div class="roles"><span class="e">Web &amp; Android Developer</span><span class="s"></span><span class="r">AI/ML Developer</span></div>
+<div class="foot">
+  <div class="f"><b>3</b><span>Projects built</span></div>
+  <div class="f"><b>21</b><span>Technologies</span></div>
+  <div class="f"><b>3 mo</b><span>Android internship</span></div>
+  <div class="f"><b>B.Tech</b><span>Computer Science</span></div>
+</div>
+<div class="url">krishmasand7.github.io</div>
+</body></html>

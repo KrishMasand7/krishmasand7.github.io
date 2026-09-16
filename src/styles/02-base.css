@@ -1,0 +1,222 @@
+/* ── Reset & base ─────────────────────────────────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--nav-h) + 1.5rem);
+}
+html:not(.js-lenis) { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: var(--t-body);
+  line-height: 1.65;
+  font-synthesis-weight: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+img, canvas { display: block; }
+img, svg, canvas { max-width: 100%; }
+img { height: auto; }
+/* Icons sit inline with text; block-level SVG would break the line. */
+svg { vertical-align: middle; }
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+ul, ol { list-style: none; padding: 0; }
+
+:where(h1, h2, h3, h4) { font-weight: 500; line-height: 1.06; letter-spacing: -0.022em; }
+
+::selection { background: var(--web); color: var(--sel-fg); }
+
+:focus-visible {
+  outline: 2px solid var(--web);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  translate: -50% -150%;
+  z-index: 200;
+  padding: 0.7rem 1.2rem;
+  background: var(--fg);
+  color: var(--ink);
+  border-radius: 0 0 var(--r-sm) var(--r-sm);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  transition: translate 0.2s var(--ease);
+}
+.skip-link:focus-visible { translate: -50% 0; }
+
+.vh {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ── Shared primitives ────────────────────────────────────────────────── */
+
+.shell {
+  width: min(100% - var(--gutter) * 2, var(--shell));
+  margin-inline: auto;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--t-mono);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.serif { font-family: var(--font-serif); letter-spacing: -0.012em; }
+
+.section { padding-block: var(--sec-y); position: relative; }
+.section + .section { border-top: 1px solid var(--line); }
+
+.sec-head { max-width: var(--measure); margin-bottom: clamp(2.75rem, 1.5rem + 4vw, 4.75rem); }
+.sec-kicker {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  color: var(--fg-3); margin-bottom: 1.35rem;
+}
+.sec-kicker::before {
+  content: ''; width: 26px; height: 1px; background: var(--line-strong);
+}
+.sec-title {
+  font-family: var(--font-serif);
+  font-size: var(--t-h2);
+  font-weight: 400;
+  letter-spacing: -0.028em;
+  line-height: 1.03;
+  text-wrap: balance;
+}
+.sec-summary {
+  margin-top: 1.5rem;
+  color: var(--fg-2);
+  font-size: var(--t-lead);
+  line-height: 1.6;
+  max-width: 58ch;
+  text-wrap: pretty;
+}
+
+.rule { height: 1px; background: var(--line); border: 0; }
+
+/* Buttons */
+.btn {
+  --btn-fg: var(--ink);
+  --btn-bg: var(--fg);
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.78rem 1.35rem;
+  border-radius: 100px;
+  font-size: var(--t-sm);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  border: 1px solid transparent;
+  transition: background 0.25s var(--ease), color 0.25s var(--ease),
+              border-color 0.25s var(--ease), transform 0.35s var(--ease);
+  will-change: transform;
+}
+.btn:hover { background: var(--btn-hover); }
+.btn--ghost {
+  --btn-bg: transparent;
+  --btn-fg: var(--fg);
+  border-color: var(--line-mid);
+}
+.btn--ghost:hover { background: var(--surface-2); border-color: var(--line-strong); }
+.btn .arr { transition: translate 0.3s var(--ease); }
+.btn:hover .arr { translate: 3px 0; }
+
+/* Inline external link */
+.xlink {
+  display: inline-flex; align-items: center; gap: 0.42rem;
+  color: var(--fg-2);
+  font-size: var(--t-sm);
+  font-weight: 500;
+  border-bottom: 1px solid var(--line-mid);
+  padding-bottom: 1px;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+.xlink:hover { color: var(--fg); border-color: var(--fg-3); }
+.xlink svg { width: 11px; height: 11px; opacity: 0.7; }
+
+/* Tone chips */
+.tone {
+  --tone-fg: var(--fg-2);
+  --tone-bg: var(--chip-bg);
+  --tone-line: var(--line-mid);
+}
+.tone-web { --tone-fg: var(--web); --tone-bg: var(--web-soft); --tone-line: var(--web-line); }
+.tone-ml { --tone-fg: var(--ml); --tone-bg: var(--ml-soft); --tone-line: var(--ml-line); }
+
+.chip {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  padding: 0.28rem 0.68rem;
+  border-radius: 100px;
+  border: 1px solid var(--tone-line);
+  background: var(--tone-bg);
+  color: var(--tone-fg);
+  font-family: var(--font-mono);
+  font-size: var(--t-mono);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ── Portrait cut-outs ────────────────────────────────────────────────────
+   The images carry no background of their own, so the panel behind them is
+   drawn here from palette tokens and follows the theme for free. The plinth
+   is darkest — or, on paper, most tinted — at the bottom, which is where the
+   subject's dark jacket sits: on ink it would otherwise dissolve into the
+   page and take the shoulder line with it. */
+
+.portrait {
+  position: relative;
+  margin: 0;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  padding-top: clamp(1.4rem, 1rem + 1.6vw, 2.2rem);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-card);
+  background:
+    radial-gradient(85% 65% at 90% 2%, var(--ml-soft), transparent 62%),
+    linear-gradient(to bottom,
+      color-mix(in srgb, var(--web) 7%, var(--surface)),
+      var(--surface-3));
+}
+/* A hairline along the top edge, so the panel reads as lit from above. */
+.portrait::after {
+  content: '';
+  position: absolute; inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line-mid) 30%, var(--line-mid) 70%, transparent);
+}
+.portrait img { width: 100%; height: auto; }
+
+.tag {
+  padding: 0.3rem 0.62rem;
+  border-radius: var(--r-sm);
+  background: var(--tag-bg);
+  border: 1px solid var(--line);
+  color: var(--fg-2);
+  font-size: 0.78rem;
+  line-height: 1.35;
+  white-space: nowrap;
+}

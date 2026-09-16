@@ -1,0 +1,130 @@
+/* ── Hero ─────────────────────────────────────────────────────────────── */
+
+.hero {
+  position: relative;
+  min-height: clamp(660px, 100svh, 1000px);
+  display: flex;
+  align-items: center;
+  padding-top: calc(var(--nav-h) + 3rem);
+  padding-bottom: 4rem;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* Bespoke canvas: a rolling 3D surface of ridgelines, projected and drawn back
+   to front in software, each line running from the web blue to the ML gold. */
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  /* A canvas is a replaced element: inset:0 alone leaves it at its intrinsic
+     300x150, so the box has to be sized explicitly. */
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  opacity: 0;
+  transition: opacity 1.6s var(--ease);
+  pointer-events: none;
+}
+.hero-canvas[data-ready='true'] { opacity: 1; }
+
+.hero::after {
+  content: '';
+  position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(to right, var(--ink) 2%, color-mix(in srgb, var(--ink) 62%, transparent) 34%, transparent 55%),
+    radial-gradient(58% 62% at 73.5% 46%, transparent 12%, var(--ink) 86%),
+    linear-gradient(to bottom, transparent 58%, var(--ink) 100%);
+  pointer-events: none;
+}
+
+.hero-inner { position: relative; }
+
+.hero-eyebrow {
+  display: flex; align-items: center; gap: 0.7rem;
+  color: var(--fg-3); margin-bottom: clamp(1.5rem, 1rem + 1.6vw, 2.4rem);
+}
+.hero-eyebrow .dot {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--web);
+  box-shadow: 0 0 0 4px var(--web-soft);
+}
+
+.hero h1 {
+  font-family: var(--font-serif);
+  font-size: var(--t-h1);
+  font-weight: 400;
+  letter-spacing: -0.038em;
+  line-height: 0.92;
+  margin-bottom: clamp(1.1rem, 0.7rem + 1.4vw, 1.8rem);
+}
+
+.hero-roles {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: 0.55rem 0.9rem;
+  margin-bottom: clamp(1.8rem, 1.2rem + 2vw, 2.75rem);
+  font-size: clamp(0.95rem, 0.88rem + 0.32vw, 1.15rem);
+  color: var(--fg-2);
+  letter-spacing: -0.01em;
+}
+.hero-roles .r-web { color: var(--web); }
+.hero-roles .r-ml { color: var(--ml); }
+.hero-roles .sep { width: 4px; height: 4px; border-radius: 50%; background: var(--fg-4); }
+
+.hero-lede {
+  font-size: var(--t-lead);
+  line-height: 1.55;
+  color: var(--fg);
+  max-width: 40ch;
+  text-wrap: pretty;
+  letter-spacing: -0.012em;
+}
+.hero-sub {
+  margin-top: 1.15rem;
+  color: var(--fg-3);
+  max-width: 52ch;
+  font-size: var(--t-sm);
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: clamp(2rem, 1.4rem + 2vw, 2.9rem); }
+
+/* Metric strip */
+.hero-stats {
+  margin-top: clamp(3rem, 2rem + 4vw, 5rem);
+  display: grid;
+  grid-template-columns: repeat(var(--stats, 4), minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border-block: 1px solid var(--line);
+}
+.hero-stat { background: var(--ink); padding: 1.25rem 1.35rem 1.35rem; }
+.hero-stat dd {
+  font-family: var(--font-serif);
+  font-size: clamp(1.85rem, 1.3rem + 2.2vw, 2.9rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  margin: 0 0 0.55rem;
+}
+.hero-stat dt { color: var(--fg-3); font-size: 0.775rem; line-height: 1.42; }
+
+
+@media (max-width: 860px) {
+  .hero-stats[data-stats='4'] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+/* Below tablet the copy occupies the full column, so the structure would sit
+   underneath the text rather than beside it. Dropping it also saves the
+   animation frame budget on the devices least able to spare it. */
+@media (max-width: 760px) {
+  .hero-canvas { display: none; }
+  .hero::after { background: none; }
+  .hero { min-height: auto; padding-bottom: 3rem; }
+}
+@media (max-width: 520px) {
+  .hero-roles { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
+  .hero-roles .sep { display: none; }
+}
+@media (max-width: 420px) {
+  .hero-stat { padding: 1rem 0.9rem 1.1rem; }
+}

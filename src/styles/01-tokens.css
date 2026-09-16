@@ -1,0 +1,182 @@
+/* ── Design tokens ──────────────────────────────────────────────────────
+   A near-monochrome ink surface with two semantic accents:
+     --web (cool blue)  = web development
+     --ml  (warm gold)  = AI & machine learning
+   The dual identity is encoded in the colour system itself, so a reader can
+   tell which discipline a thing belongs to before reading a word of it.
+
+   Two palettes, one set of names. Nothing outside this file may hard-code a
+   colour: every rule in the rest of the stylesheet reads these tokens, which
+   is what makes a second palette a 40-line addition rather than a rewrite.
+
+   Dark is the design's native state and therefore the default. Light is
+   applied in two situations, and they need two separate rules:
+     1. the reader asked for it       →  html[data-theme='light']
+     2. the OS asks for it and the reader has not overridden it
+                                      →  @media (prefers-color-scheme: light)
+   The media query is what makes the preference work with JavaScript off, so
+   it cannot be folded into the attribute rule. THE TWO LIGHT BLOCKS BELOW
+   MUST BE KEPT IN SYNC. */
+
+:root {
+  color-scheme: dark;
+
+  --ink:        #08090c;
+  --ink-2:      #0b0d11;
+  --surface:    #0f1218;
+  --surface-2:  #141821;
+  --surface-3:  #1a1f2a;
+
+  --line:        rgba(255, 255, 255, 0.075);
+  --line-mid:    rgba(255, 255, 255, 0.12);
+  --line-strong: rgba(255, 255, 255, 0.2);
+
+  --fg:   #e9ebef;
+  --fg-2: #a3abb8;
+  --fg-3: #868f9d;  /* >= 5.4:1 on every surface used here */
+  --fg-4: #767f8d;  /* >= 4.6:1 on every surface carrying text */
+  --fg-5: #4d545f;  /* decorative only: index numerals, bullets, rules */
+
+  --web:      #7ba3ff;
+  --web-soft: rgba(123, 163, 255, 0.12);
+  --web-line: rgba(123, 163, 255, 0.32);
+  --ml:      #e7b45a;
+  --ml-soft: rgba(231, 180, 90, 0.12);
+  --ml-line: rgba(231, 180, 90, 0.32);
+
+  /* Surfaces and accents that are not a straight tint of the ones above. */
+  --btn-hover:    #ffffff;              /* the solid button, pushed further */
+  --sel-fg:       #06070a;              /* text colour inside ::selection */
+  --chip-bg:      rgba(255, 255, 255, 0.05);
+  --tag-bg:       rgba(255, 255, 255, 0.035);
+  --tier-silver:  #b9c2cf;
+  --tier-bronze:  #c78b5c;
+  /* Light needs a shadow to lift a card off paper; dark lifts with value. */
+  --shadow-card:  none;
+  --shadow-lift:  none;
+
+  /* Hero canvas. Read by wave.js — it paints on a transparent canvas and
+     has no other way to know which palette is in force. RGB triples so the
+     script can vary the alpha per line. */
+  --wave-web: 123 163 255;
+  --wave-ml: 231 180 90;
+  --wave-gain: 1;  /* alpha multiplier: light paper needs more ink */
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+
+  /* Fluid type scale — 375px → 1440px */
+  --t-mono:  clamp(0.66rem, 0.62rem + 0.16vw, 0.74rem);
+  --t-sm:    clamp(0.82rem, 0.79rem + 0.13vw, 0.89rem);
+  --t-body:  clamp(0.94rem, 0.9rem + 0.19vw, 1.05rem);
+  --t-lead:  clamp(1.06rem, 0.98rem + 0.38vw, 1.28rem);
+  --t-h4:    clamp(1.05rem, 0.99rem + 0.28vw, 1.22rem);
+  --t-h3:    clamp(1.28rem, 1.14rem + 0.6vw, 1.65rem);
+  --t-h2:    clamp(1.95rem, 1.5rem + 1.95vw, 3.2rem);
+  --t-h1:    clamp(2.7rem, 1.6rem + 4.9vw, 6rem);
+
+  --measure: 62ch;
+  --shell: 1200px;
+  --gutter: clamp(1.25rem, 0.7rem + 2.4vw, 3.5rem);
+  --sec-y: clamp(4.75rem, 2.6rem + 8.4vw, 9rem);
+
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 20px;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-io: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur: 0.5s;
+
+  --nav-h: 64px;
+}
+
+/* ── Light palette ──────────────────────────────────────────────────────
+   Warm paper rather than white, so the serif display type keeps the
+   editorial feel it has on ink. Both accents are darkened to clear 4.5:1 on
+   paper — the pale blue and gold that carry the dark palette are unreadable
+   here, but the hue relationship, and therefore the meaning, survives.
+   Keep in sync with the media-query copy below. */
+
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --ink:        #f7f6f3;
+  --ink-2:      #ffffff;
+  --surface:    #f0eeea;
+  --surface-2:  #e8e6e1;
+  --surface-3:  #dedbd4;
+
+  --line:        rgba(24, 28, 38, 0.09);
+  --line-mid:    rgba(24, 28, 38, 0.16);
+  --line-strong: rgba(24, 28, 38, 0.3);
+
+  --fg:   #14161b;
+  --fg-2: #3f444e;
+  --fg-3: #585e69;
+  --fg-4: #666c77;
+  --fg-5: #9aa0ac;
+
+  --web:      #2c55d4;
+  --web-soft: rgba(44, 85, 212, 0.08);
+  --web-line: rgba(44, 85, 212, 0.3);
+  --ml:      #7f550c;
+  --ml-soft: rgba(127, 85, 12, 0.09);
+  --ml-line: rgba(127, 85, 12, 0.32);
+
+  --btn-hover:    #000205;
+  --sel-fg:       #ffffff;
+  --chip-bg:      rgba(24, 28, 38, 0.05);
+  --tag-bg:       rgba(24, 28, 38, 0.035);
+  --tier-silver:  #5d6675;
+  --tier-bronze:  #8a5533;
+  --shadow-card:  0 1px 2px rgba(24, 28, 38, 0.05), 0 10px 26px -14px rgba(24, 28, 38, 0.16);
+  --shadow-lift:  0 2px 4px rgba(24, 28, 38, 0.06), 0 18px 38px -16px rgba(24, 28, 38, 0.22);
+
+  --wave-web: 44 85 212;
+  --wave-ml: 143 95 18;
+  --wave-gain: 1.35;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) {
+    color-scheme: light;
+
+    --ink:        #f7f6f3;
+    --ink-2:      #ffffff;
+    --surface:    #f0eeea;
+    --surface-2:  #e8e6e1;
+    --surface-3:  #dedbd4;
+
+    --line:        rgba(24, 28, 38, 0.09);
+    --line-mid:    rgba(24, 28, 38, 0.16);
+    --line-strong: rgba(24, 28, 38, 0.3);
+
+    --fg:   #14161b;
+    --fg-2: #3f444e;
+    --fg-3: #585e69;
+    --fg-4: #666c77;
+    --fg-5: #9aa0ac;
+
+    --web:      #2c55d4;
+    --web-soft: rgba(44, 85, 212, 0.08);
+    --web-line: rgba(44, 85, 212, 0.3);
+    --ml:      #7f550c;
+    --ml-soft: rgba(127, 85, 12, 0.09);
+    --ml-line: rgba(127, 85, 12, 0.32);
+
+    --btn-hover:    #000205;
+    --sel-fg:       #ffffff;
+    --chip-bg:      rgba(24, 28, 38, 0.05);
+    --tag-bg:       rgba(24, 28, 38, 0.035);
+    --tier-silver:  #5d6675;
+    --tier-bronze:  #8a5533;
+    --shadow-card:  0 1px 2px rgba(24, 28, 38, 0.05), 0 10px 26px -14px rgba(24, 28, 38, 0.16);
+    --shadow-lift:  0 2px 4px rgba(24, 28, 38, 0.06), 0 18px 38px -16px rgba(24, 28, 38, 0.22);
+
+    --wave-web: 44 85 212;
+    --wave-ml: 143 95 18;
+    --wave-gain: 1.35;
+  }
+}

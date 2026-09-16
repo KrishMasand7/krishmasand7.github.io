@@ -1,0 +1,81 @@
+/* ── Motion ───────────────────────────────────────────────────────────────
+   Every animated element is fully visible and usable with JavaScript off and
+   with prefers-reduced-motion set. Reveals are opt-in: the .reveal class is
+   only applied by script once IntersectionObserver is confirmed available. */
+
+.js .reveal {
+  opacity: 0;
+  translate: 0 18px;
+  transition: opacity 0.7s var(--ease), translate 0.7s var(--ease);
+  transition-delay: var(--d, 0ms);
+}
+.js .reveal.is-in { opacity: 1; translate: 0 0; }
+
+/* Line-by-line display reveal for the hero and section headings.
+   The mask clips at its padding box, and a tight display line-height (0.92)
+   puts the serif ascenders above the line box — so the cap of a "G" was being
+   shaved off. Open the box upward and pull it back with a matching negative
+   margin: the glyph clears, the layout position is unchanged, and because only
+   the top grows the line still hides completely at translate 105%. */
+.js .lines { display: block; }
+.js .line-mask {
+  display: block;
+  overflow: hidden;
+  padding-top: 0.18em;
+  margin-top: -0.18em;
+}
+.js .line-inner {
+  display: block;
+  translate: 0 105%;
+  transition: translate 0.95s var(--ease);
+  transition-delay: var(--d, 0ms);
+}
+.js .lines.is-in .line-inner { translate: 0 0; }
+
+/* Magnetic buttons — displacement written by script, easing owned by CSS */
+.magnetic { transition: transform 0.45s var(--ease); }
+
+/* Count-up numerals hold their final width to avoid layout shift */
+.counter { display: inline-block; font-variant-numeric: tabular-nums; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .js .reveal { opacity: 1 !important; translate: none !important; }
+  .js .line-inner { translate: none !important; }
+  .magnetic { transform: none !important; }
+  .hero-canvas { display: none; }
+  /* Disclosure panels still need to open/close, just instantly. */
+  .project-body { transition: none; }
+}
+
+/* Print gets its own palette rather than either screen one: browsers drop
+   background fills by default, so every ink-on-dark token would print as pale
+   grey on white paper. Foregrounds go to near-black, surfaces go to paper. */
+@media print {
+  :root {
+    color-scheme: light;
+    --ink: #fff; --ink-2: #fff; --surface: #fff; --surface-2: #fff; --surface-3: #fff;
+    --line: #ddd; --line-mid: #ccc; --line-strong: #999;
+    --fg: #111; --fg-2: #333; --fg-3: #444; --fg-4: #555; --fg-5: #888;
+    --web: #1b3ea8; --web-soft: transparent; --web-line: #99a8d0;
+    --ml: #7a4f08; --ml-soft: transparent; --ml-line: #cbb08a;
+    --chip-bg: transparent; --tag-bg: transparent;
+    --tier-silver: #555; --tier-bronze: #7a4f08;
+    --shadow-card: none; --shadow-lift: none;
+  }
+  .nav, .nav-sheet, .progress, .hero-canvas, .project-toggle,
+  .filters, .theme-toggle, .mail-help { display: none !important; }
+  body { background: #fff; color: #111; }
+  /* Nothing scrolls on paper, so a reveal that has not fired yet would print
+     as a blank page. Put every animated element in its resting state. */
+  .js .reveal, .js .line-inner { opacity: 1 !important; translate: none !important; }
+  .project-body { grid-template-rows: 1fr !important; }
+  .section { padding-block: 1.5rem; }
+  .portrait { break-inside: avoid; }
+}

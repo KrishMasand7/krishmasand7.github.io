@@ -1,0 +1,159 @@
+/* ── Navigation ───────────────────────────────────────────────────────── */
+
+.nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  transition: background 0.35s var(--ease), border-color 0.35s var(--ease),
+              backdrop-filter 0.35s var(--ease);
+  border-bottom: 1px solid transparent;
+}
+.nav[data-stuck='true'] {
+  background: color-mix(in srgb, var(--ink) 78%, transparent);
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  border-bottom-color: var(--line);
+}
+
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+
+.brand {
+  display: inline-flex; align-items: baseline; gap: 0.55rem;
+  font-weight: 600; letter-spacing: -0.03em; font-size: 0.98rem;
+}
+.brand-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--web);
+  translate: 0 -1px;
+  box-shadow: 0 0 0 3px var(--web-soft);
+}
+.brand-sub { color: var(--fg-3); font-weight: 400; font-size: 0.82rem; letter-spacing: 0; }
+
+.nav-links { display: flex; align-items: center; gap: 0.15rem; }
+.nav-links a {
+  position: relative;
+  padding: 0.45rem 0.7rem;
+  border-radius: var(--r-sm);
+  font-size: 0.845rem;
+  color: var(--fg-3);
+  transition: color 0.2s var(--ease);
+}
+.nav-links a:hover { color: var(--fg); }
+.nav-links a[aria-current='true'] { color: var(--fg); }
+.nav-links a[aria-current='true']::after {
+  content: '';
+  position: absolute; left: 0.7rem; right: 0.7rem; bottom: 0.16rem;
+  height: 1px; background: var(--fg-3);
+}
+
+.nav-cta { display: flex; align-items: center; gap: 0.6rem; }
+.nav-cta .btn { padding: 0.52rem 1rem; font-size: 0.82rem; }
+
+/* ── Theme toggle ─────────────────────────────────────────────────────────
+   Two glyphs stacked in one 36px well. Whichever palette is in force, the
+   visible glyph is the one you would be switching *to* — sun on ink, moon on
+   paper — so the control reads as an action rather than a status. The three
+   selectors below mirror the three palette selectors in 01-tokens.css. */
+
+.theme-toggle {
+  position: relative;
+  display: grid; place-items: center;
+  width: 36px; height: 36px;
+  flex: none;
+  border: 1px solid var(--line-mid);
+  border-radius: 100px;
+  color: var(--fg-3);
+  transition: color 0.25s var(--ease), border-color 0.25s var(--ease),
+              background 0.25s var(--ease);
+}
+.theme-toggle:hover { color: var(--fg); border-color: var(--line-strong); background: var(--surface-2); }
+.theme-toggle svg {
+  grid-area: 1 / 1;
+  width: 15px; height: 15px;
+  transition: opacity 0.3s var(--ease), rotate 0.45s var(--ease), scale 0.45s var(--ease);
+}
+.theme-toggle .i-moon { opacity: 0; rotate: -55deg; scale: 0.6; }
+
+:root[data-theme='light'] .theme-toggle .i-sun { opacity: 0; rotate: 55deg; scale: 0.6; }
+:root[data-theme='light'] .theme-toggle .i-moon { opacity: 1; rotate: 0deg; scale: 1; }
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) .theme-toggle .i-sun { opacity: 0; rotate: 55deg; scale: 0.6; }
+  :root:not([data-theme='dark']) .theme-toggle .i-moon { opacity: 1; rotate: 0deg; scale: 1; }
+}
+
+.nav-toggle {
+  display: none;
+  width: 40px; height: 40px;
+  flex-direction: column;
+  align-items: center; justify-content: center;
+  border: 1px solid var(--line-mid);
+  border-radius: 100px;
+}
+.nav-toggle span {
+  display: block; width: 15px; height: 1.5px; background: var(--fg);
+  transition: translate 0.3s var(--ease), rotate 0.3s var(--ease), opacity 0.2s;
+}
+.nav-toggle span + span { margin-top: 4px; }
+.nav-toggle[aria-expanded='true'] span:nth-child(1) { translate: 0 5.5px; rotate: 45deg; }
+.nav-toggle[aria-expanded='true'] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded='true'] span:nth-child(3) { translate: 0 -5.5px; rotate: -45deg; }
+
+/* Reading progress */
+.progress {
+  position: fixed; inset: 0 auto auto 0;
+  height: 1.5px; width: 100%;
+  transform-origin: 0 50%;
+  scale: 0 1;
+  background: linear-gradient(90deg, var(--web), var(--ml));
+  z-index: 101;
+}
+
+/* Mobile sheet */
+@media (max-width: 900px) {
+  .nav-links, .nav-cta .btn { display: none; }
+  .nav-cta { gap: 0.45rem; }
+  .nav-toggle { display: flex; }
+
+  .nav-sheet {
+    position: fixed; inset: var(--nav-h) 0 auto;
+    background: color-mix(in srgb, var(--ink) 96%, transparent);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--line);
+    padding: 1.25rem var(--gutter) 2rem;
+    display: grid; gap: 0.1rem;
+    z-index: 99;
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path 0.45s var(--ease);
+    max-height: calc(100dvh - var(--nav-h));
+    overflow-y: auto;
+  }
+  .nav-sheet[data-open='true'] { clip-path: inset(0 0 0 0); }
+  .nav-sheet a {
+    display: flex; align-items: baseline; gap: 0.9rem;
+    padding: 0.82rem 0.25rem;
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    border-bottom: 1px solid var(--line);
+    color: var(--fg-2);
+  }
+  .nav-sheet a .idx { font-family: var(--font-mono); font-size: 0.66rem; color: var(--fg-5); }
+  .nav-sheet .sheet-foot { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1.5rem; }
+}
+@media (min-width: 901px) { .nav-sheet { display: none; } }
+
+/* ── Footer ───────────────────────────────────────────────────────────── */
+
+.footer { border-top: 1px solid var(--line); padding-block: 3rem 2.5rem; }
+.footer-inner {
+  display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem;
+  align-items: baseline; justify-content: space-between;
+  color: var(--fg-3); font-size: var(--t-sm);
+}
+.footer-links { display: flex; gap: 1.4rem; flex-wrap: wrap; }
+.footer-links a { transition: color 0.2s var(--ease); }
+.footer-links a:hover { color: var(--fg); }
+.footer-note { color: var(--fg-4); font-size: 0.78rem; max-width: 46ch; }

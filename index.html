@@ -1,0 +1,1532 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Krish Masand — Web, Android &amp; AI/ML Developer</title>
+<meta name="description" content="Krish Masand is a Computer Science &amp; Engineering student in Amravati who builds full-stack web apps with Node.js, Express, React and MongoDB, Android apps, and machine-learning models with scikit-learn, TensorFlow and PyTorch.">
+<meta name="author" content="Krish Masand">
+<meta name="keywords" content="Krish Masand, web developer, Android developer, machine learning, full-stack, Node.js, React, MongoDB, TensorFlow, PyTorch, Sipna College of Engineering and Technology, Amravati">
+<meta name="theme-color" content="#08090c" media="(prefers-color-scheme: dark)" data-theme-color>
+<meta name="theme-color" content="#f7f6f3" media="(prefers-color-scheme: light)" data-theme-color>
+<link rel="canonical" href="https://krishmasand7.github.io/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://krishmasand7.github.io/">
+<meta property="og:site_name" content="Krish Masand">
+<meta property="og:title" content="Krish Masand — Web, Android &amp; AI/ML Developer">
+<meta property="og:description" content="Web, Android and AI/ML developer. B.Tech Computer Science &amp; Engineering student at Sipna College of Engineering &amp; Technology, Amravati.">
+<meta property="og:image" content="https://krishmasand7.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Krish Masand — Web &amp; Android Developer and AI/ML Developer">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Krish Masand — Web, Android &amp; AI/ML Developer">
+<meta name="twitter:description" content="Web, Android and AI/ML developer. B.Tech Computer Science &amp; Engineering student at Sipna College of Engineering &amp; Technology, Amravati.">
+<meta name="twitter:image" content="https://krishmasand7.github.io/og.png">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<link rel="preload" href="assets/fonts/inter-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Set before first paint so enhanced styles never flash their fallback
+     state, and so a stored theme choice is in force for the very first frame.
+     No stored choice means no attribute, which leaves the palette to the
+     prefers-color-scheme media query in the stylesheet. -->
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>@font-face {
+font-family: 'Inter';
+font-style: normal;
+font-weight: 300 800;
+font-display: swap;
+src: url('assets/fonts/inter-latin-normal.woff2') format('woff2');
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+font-family: 'Newsreader';
+font-style: normal;
+font-weight: 300 600;
+font-display: swap;
+src: url('assets/fonts/newsreader-latin-normal.woff2') format('woff2');
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+:root {
+color-scheme: dark;
+--ink:        #08090c;
+--ink-2:      #0b0d11;
+--surface:    #0f1218;
+--surface-2:  #141821;
+--surface-3:  #1a1f2a;
+--line:        rgba(255, 255, 255, 0.075);
+--line-mid:    rgba(255, 255, 255, 0.12);
+--line-strong: rgba(255, 255, 255, 0.2);
+--fg:   #e9ebef;
+--fg-2: #a3abb8;
+--fg-3: #868f9d;
+--fg-4: #767f8d;
+--fg-5: #4d545f;
+--web:      #7ba3ff;
+--web-soft: rgba(123, 163, 255, 0.12);
+--web-line: rgba(123, 163, 255, 0.32);
+--ml:      #e7b45a;
+--ml-soft: rgba(231, 180, 90, 0.12);
+--ml-line: rgba(231, 180, 90, 0.32);
+--btn-hover:    #ffffff;
+--sel-fg:       #06070a;
+--chip-bg:      rgba(255, 255, 255, 0.05);
+--tag-bg:       rgba(255, 255, 255, 0.035);
+--tier-silver:  #b9c2cf;
+--tier-bronze:  #c78b5c;
+--shadow-card:  none;
+--shadow-lift:  none;
+--wave-web: 123 163 255;
+--wave-ml: 231 180 90;
+--wave-gain: 1;
+--font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+--font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+--font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+--t-mono:  clamp(0.66rem, 0.62rem + 0.16vw, 0.74rem);
+--t-sm:    clamp(0.82rem, 0.79rem + 0.13vw, 0.89rem);
+--t-body:  clamp(0.94rem, 0.9rem + 0.19vw, 1.05rem);
+--t-lead:  clamp(1.06rem, 0.98rem + 0.38vw, 1.28rem);
+--t-h4:    clamp(1.05rem, 0.99rem + 0.28vw, 1.22rem);
+--t-h3:    clamp(1.28rem, 1.14rem + 0.6vw, 1.65rem);
+--t-h2:    clamp(1.95rem, 1.5rem + 1.95vw, 3.2rem);
+--t-h1:    clamp(2.7rem, 1.6rem + 4.9vw, 6rem);
+--measure: 62ch;
+--shell: 1200px;
+--gutter: clamp(1.25rem, 0.7rem + 2.4vw, 3.5rem);
+--sec-y: clamp(4.75rem, 2.6rem + 8.4vw, 9rem);
+--r-sm: 8px;
+--r-md: 14px;
+--r-lg: 20px;
+--ease: cubic-bezier(0.22, 1, 0.36, 1);
+--ease-io: cubic-bezier(0.65, 0, 0.35, 1);
+--dur: 0.5s;
+--nav-h: 64px;
+}
+:root[data-theme='light'] {
+color-scheme: light;
+--ink:        #f7f6f3;
+--ink-2:      #ffffff;
+--surface:    #f0eeea;
+--surface-2:  #e8e6e1;
+--surface-3:  #dedbd4;
+--line:        rgba(24, 28, 38, 0.09);
+--line-mid:    rgba(24, 28, 38, 0.16);
+--line-strong: rgba(24, 28, 38, 0.3);
+--fg:   #14161b;
+--fg-2: #3f444e;
+--fg-3: #585e69;
+--fg-4: #666c77;
+--fg-5: #9aa0ac;
+--web:      #2c55d4;
+--web-soft: rgba(44, 85, 212, 0.08);
+--web-line: rgba(44, 85, 212, 0.3);
+--ml:      #7f550c;
+--ml-soft: rgba(127, 85, 12, 0.09);
+--ml-line: rgba(127, 85, 12, 0.32);
+--btn-hover:    #000205;
+--sel-fg:       #ffffff;
+--chip-bg:      rgba(24, 28, 38, 0.05);
+--tag-bg:       rgba(24, 28, 38, 0.035);
+--tier-silver:  #5d6675;
+--tier-bronze:  #8a5533;
+--shadow-card:  0 1px 2px rgba(24, 28, 38, 0.05), 0 10px 26px -14px rgba(24, 28, 38, 0.16);
+--shadow-lift:  0 2px 4px rgba(24, 28, 38, 0.06), 0 18px 38px -16px rgba(24, 28, 38, 0.22);
+--wave-web: 44 85 212;
+--wave-ml: 143 95 18;
+--wave-gain: 1.35;
+}
+@media (prefers-color-scheme: light) {
+:root:not([data-theme='dark']) {
+color-scheme: light;
+--ink:        #f7f6f3;
+--ink-2:      #ffffff;
+--surface:    #f0eeea;
+--surface-2:  #e8e6e1;
+--surface-3:  #dedbd4;
+--line:        rgba(24, 28, 38, 0.09);
+--line-mid:    rgba(24, 28, 38, 0.16);
+--line-strong: rgba(24, 28, 38, 0.3);
+--fg:   #14161b;
+--fg-2: #3f444e;
+--fg-3: #585e69;
+--fg-4: #666c77;
+--fg-5: #9aa0ac;
+--web:      #2c55d4;
+--web-soft: rgba(44, 85, 212, 0.08);
+--web-line: rgba(44, 85, 212, 0.3);
+--ml:      #7f550c;
+--ml-soft: rgba(127, 85, 12, 0.09);
+--ml-line: rgba(127, 85, 12, 0.32);
+--btn-hover:    #000205;
+--sel-fg:       #ffffff;
+--chip-bg:      rgba(24, 28, 38, 0.05);
+--tag-bg:       rgba(24, 28, 38, 0.035);
+--tier-silver:  #5d6675;
+--tier-bronze:  #8a5533;
+--shadow-card:  0 1px 2px rgba(24, 28, 38, 0.05), 0 10px 26px -14px rgba(24, 28, 38, 0.16);
+--shadow-lift:  0 2px 4px rgba(24, 28, 38, 0.06), 0 18px 38px -16px rgba(24, 28, 38, 0.22);
+--wave-web: 44 85 212;
+--wave-ml: 143 95 18;
+--wave-gain: 1.35;
+}
+}
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html {
+-webkit-text-size-adjust: 100%;
+scroll-padding-top: calc(var(--nav-h) + 1.5rem);
+}
+html:not(.js-lenis) { scroll-behavior: smooth; }
+body {
+background: var(--ink);
+color: var(--fg);
+font-family: var(--font-sans);
+font-size: var(--t-body);
+line-height: 1.65;
+font-synthesis-weight: none;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+text-rendering: optimizeLegibility;
+overflow-x: hidden;
+}
+img, canvas { display: block; }
+img, svg, canvas { max-width: 100%; }
+img { height: auto; }
+svg { vertical-align: middle; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+ul, ol { list-style: none; padding: 0; }
+:where(h1, h2, h3, h4) { font-weight: 500; line-height: 1.06; letter-spacing: -0.022em; }
+::selection { background: var(--web); color: var(--sel-fg); }
+:focus-visible {
+outline: 2px solid var(--web);
+outline-offset: 3px;
+border-radius: 3px;
+}
+.skip-link {
+position: absolute;
+left: 50%;
+top: 0;
+translate: -50% -150%;
+z-index: 200;
+padding: 0.7rem 1.2rem;
+background: var(--fg);
+color: var(--ink);
+border-radius: 0 0 var(--r-sm) var(--r-sm);
+font-size: var(--t-sm);
+font-weight: 600;
+transition: translate 0.2s var(--ease);
+}
+.skip-link:focus-visible { translate: -50% 0; }
+.vh {
+position: absolute !important;
+width: 1px; height: 1px;
+padding: 0; margin: -1px;
+overflow: hidden;
+clip-path: inset(50%);
+white-space: nowrap;
+}
+.shell {
+width: min(100% - var(--gutter) * 2, var(--shell));
+margin-inline: auto;
+}
+.mono {
+font-family: var(--font-mono);
+font-size: var(--t-mono);
+letter-spacing: 0.09em;
+text-transform: uppercase;
+font-weight: 500;
+}
+.serif { font-family: var(--font-serif); letter-spacing: -0.012em; }
+.section { padding-block: var(--sec-y); position: relative; }
+.section + .section { border-top: 1px solid var(--line); }
+.sec-head { max-width: var(--measure); margin-bottom: clamp(2.75rem, 1.5rem + 4vw, 4.75rem); }
+.sec-kicker {
+display: inline-flex; align-items: center; gap: 0.6rem;
+color: var(--fg-3); margin-bottom: 1.35rem;
+}
+.sec-kicker::before {
+content: ''; width: 26px; height: 1px; background: var(--line-strong);
+}
+.sec-title {
+font-family: var(--font-serif);
+font-size: var(--t-h2);
+font-weight: 400;
+letter-spacing: -0.028em;
+line-height: 1.03;
+text-wrap: balance;
+}
+.sec-summary {
+margin-top: 1.5rem;
+color: var(--fg-2);
+font-size: var(--t-lead);
+line-height: 1.6;
+max-width: 58ch;
+text-wrap: pretty;
+}
+.rule { height: 1px; background: var(--line); border: 0; }
+.btn {
+--btn-fg: var(--ink);
+--btn-bg: var(--fg);
+display: inline-flex; align-items: center; gap: 0.6rem;
+padding: 0.78rem 1.35rem;
+border-radius: 100px;
+font-size: var(--t-sm);
+font-weight: 600;
+letter-spacing: -0.005em;
+background: var(--btn-bg);
+color: var(--btn-fg);
+border: 1px solid transparent;
+transition: background 0.25s var(--ease), color 0.25s var(--ease),
+border-color 0.25s var(--ease), transform 0.35s var(--ease);
+will-change: transform;
+}
+.btn:hover { background: var(--btn-hover); }
+.btn--ghost {
+--btn-bg: transparent;
+--btn-fg: var(--fg);
+border-color: var(--line-mid);
+}
+.btn--ghost:hover { background: var(--surface-2); border-color: var(--line-strong); }
+.btn .arr { transition: translate 0.3s var(--ease); }
+.btn:hover .arr { translate: 3px 0; }
+.xlink {
+display: inline-flex; align-items: center; gap: 0.42rem;
+color: var(--fg-2);
+font-size: var(--t-sm);
+font-weight: 500;
+border-bottom: 1px solid var(--line-mid);
+padding-bottom: 1px;
+transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+.xlink:hover { color: var(--fg); border-color: var(--fg-3); }
+.xlink svg { width: 11px; height: 11px; opacity: 0.7; }
+.tone {
+--tone-fg: var(--fg-2);
+--tone-bg: var(--chip-bg);
+--tone-line: var(--line-mid);
+}
+.tone-web { --tone-fg: var(--web); --tone-bg: var(--web-soft); --tone-line: var(--web-line); }
+.tone-ml { --tone-fg: var(--ml); --tone-bg: var(--ml-soft); --tone-line: var(--ml-line); }
+.chip {
+display: inline-flex; align-items: center; gap: 0.45rem;
+padding: 0.28rem 0.68rem;
+border-radius: 100px;
+border: 1px solid var(--tone-line);
+background: var(--tone-bg);
+color: var(--tone-fg);
+font-family: var(--font-mono);
+font-size: var(--t-mono);
+letter-spacing: 0.07em;
+text-transform: uppercase;
+font-weight: 500;
+white-space: nowrap;
+}
+.portrait {
+position: relative;
+margin: 0;
+display: flex;
+align-items: flex-end;
+overflow: hidden;
+padding-top: clamp(1.4rem, 1rem + 1.6vw, 2.2rem);
+border: 1px solid var(--line);
+border-radius: var(--r-lg);
+box-shadow: var(--shadow-card);
+background:
+radial-gradient(85% 65% at 90% 2%, var(--ml-soft), transparent 62%),
+linear-gradient(to bottom,
+color-mix(in srgb, var(--web) 7%, var(--surface)),
+var(--surface-3));
+}
+.portrait::after {
+content: '';
+position: absolute; inset: 0 0 auto;
+height: 1px;
+background: linear-gradient(90deg, transparent, var(--line-mid) 30%, var(--line-mid) 70%, transparent);
+}
+.portrait img { width: 100%; height: auto; }
+.tag {
+padding: 0.3rem 0.62rem;
+border-radius: var(--r-sm);
+background: var(--tag-bg);
+border: 1px solid var(--line);
+color: var(--fg-2);
+font-size: 0.78rem;
+line-height: 1.35;
+white-space: nowrap;
+}
+.nav {
+position: fixed;
+inset: 0 0 auto;
+z-index: 100;
+height: var(--nav-h);
+display: flex;
+align-items: center;
+transition: background 0.35s var(--ease), border-color 0.35s var(--ease),
+backdrop-filter 0.35s var(--ease);
+border-bottom: 1px solid transparent;
+}
+.nav[data-stuck='true'] {
+background: color-mix(in srgb, var(--ink) 78%, transparent);
+backdrop-filter: saturate(160%) blur(14px);
+-webkit-backdrop-filter: saturate(160%) blur(14px);
+border-bottom-color: var(--line);
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.brand {
+display: inline-flex; align-items: baseline; gap: 0.55rem;
+font-weight: 600; letter-spacing: -0.03em; font-size: 0.98rem;
+}
+.brand-dot {
+width: 7px; height: 7px; border-radius: 50%;
+background: var(--web);
+translate: 0 -1px;
+box-shadow: 0 0 0 3px var(--web-soft);
+}
+.brand-sub { color: var(--fg-3); font-weight: 400; font-size: 0.82rem; letter-spacing: 0; }
+.nav-links { display: flex; align-items: center; gap: 0.15rem; }
+.nav-links a {
+position: relative;
+padding: 0.45rem 0.7rem;
+border-radius: var(--r-sm);
+font-size: 0.845rem;
+color: var(--fg-3);
+transition: color 0.2s var(--ease);
+}
+.nav-links a:hover { color: var(--fg); }
+.nav-links a[aria-current='true'] { color: var(--fg); }
+.nav-links a[aria-current='true']::after {
+content: '';
+position: absolute; left: 0.7rem; right: 0.7rem; bottom: 0.16rem;
+height: 1px; background: var(--fg-3);
+}
+.nav-cta { display: flex; align-items: center; gap: 0.6rem; }
+.nav-cta .btn { padding: 0.52rem 1rem; font-size: 0.82rem; }
+.theme-toggle {
+position: relative;
+display: grid; place-items: center;
+width: 36px; height: 36px;
+flex: none;
+border: 1px solid var(--line-mid);
+border-radius: 100px;
+color: var(--fg-3);
+transition: color 0.25s var(--ease), border-color 0.25s var(--ease),
+background 0.25s var(--ease);
+}
+.theme-toggle:hover { color: var(--fg); border-color: var(--line-strong); background: var(--surface-2); }
+.theme-toggle svg {
+grid-area: 1 / 1;
+width: 15px; height: 15px;
+transition: opacity 0.3s var(--ease), rotate 0.45s var(--ease), scale 0.45s var(--ease);
+}
+.theme-toggle .i-moon { opacity: 0; rotate: -55deg; scale: 0.6; }
+:root[data-theme='light'] .theme-toggle .i-sun { opacity: 0; rotate: 55deg; scale: 0.6; }
+:root[data-theme='light'] .theme-toggle .i-moon { opacity: 1; rotate: 0deg; scale: 1; }
+@media (prefers-color-scheme: light) {
+:root:not([data-theme='dark']) .theme-toggle .i-sun { opacity: 0; rotate: 55deg; scale: 0.6; }
+:root:not([data-theme='dark']) .theme-toggle .i-moon { opacity: 1; rotate: 0deg; scale: 1; }
+}
+.nav-toggle {
+display: none;
+width: 40px; height: 40px;
+flex-direction: column;
+align-items: center; justify-content: center;
+border: 1px solid var(--line-mid);
+border-radius: 100px;
+}
+.nav-toggle span {
+display: block; width: 15px; height: 1.5px; background: var(--fg);
+transition: translate 0.3s var(--ease), rotate 0.3s var(--ease), opacity 0.2s;
+}
+.nav-toggle span + span { margin-top: 4px; }
+.nav-toggle[aria-expanded='true'] span:nth-child(1) { translate: 0 5.5px; rotate: 45deg; }
+.nav-toggle[aria-expanded='true'] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded='true'] span:nth-child(3) { translate: 0 -5.5px; rotate: -45deg; }
+.progress {
+position: fixed; inset: 0 auto auto 0;
+height: 1.5px; width: 100%;
+transform-origin: 0 50%;
+scale: 0 1;
+background: linear-gradient(90deg, var(--web), var(--ml));
+z-index: 101;
+}
+@media (max-width: 900px) {
+.nav-links, .nav-cta .btn { display: none; }
+.nav-cta { gap: 0.45rem; }
+.nav-toggle { display: flex; }
+.nav-sheet {
+position: fixed; inset: var(--nav-h) 0 auto;
+background: color-mix(in srgb, var(--ink) 96%, transparent);
+backdrop-filter: blur(18px);
+-webkit-backdrop-filter: blur(18px);
+border-bottom: 1px solid var(--line);
+padding: 1.25rem var(--gutter) 2rem;
+display: grid; gap: 0.1rem;
+z-index: 99;
+clip-path: inset(0 0 100% 0);
+transition: clip-path 0.45s var(--ease);
+max-height: calc(100dvh - var(--nav-h));
+overflow-y: auto;
+}
+.nav-sheet[data-open='true'] { clip-path: inset(0 0 0 0); }
+.nav-sheet a {
+display: flex; align-items: baseline; gap: 0.9rem;
+padding: 0.82rem 0.25rem;
+font-family: var(--font-serif);
+font-size: 1.5rem;
+border-bottom: 1px solid var(--line);
+color: var(--fg-2);
+}
+.nav-sheet a .idx { font-family: var(--font-mono); font-size: 0.66rem; color: var(--fg-5); }
+.nav-sheet .sheet-foot { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1.5rem; }
+}
+@media (min-width: 901px) { .nav-sheet { display: none; } }
+.footer { border-top: 1px solid var(--line); padding-block: 3rem 2.5rem; }
+.footer-inner {
+display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem;
+align-items: baseline; justify-content: space-between;
+color: var(--fg-3); font-size: var(--t-sm);
+}
+.footer-links { display: flex; gap: 1.4rem; flex-wrap: wrap; }
+.footer-links a { transition: color 0.2s var(--ease); }
+.footer-links a:hover { color: var(--fg); }
+.footer-note { color: var(--fg-4); font-size: 0.78rem; max-width: 46ch; }
+.hero {
+position: relative;
+min-height: clamp(660px, 100svh, 1000px);
+display: flex;
+align-items: center;
+padding-top: calc(var(--nav-h) + 3rem);
+padding-bottom: 4rem;
+isolation: isolate;
+overflow: hidden;
+}
+.hero-canvas {
+position: absolute;
+inset: 0;
+width: 100%;
+height: 100%;
+z-index: -2;
+opacity: 0;
+transition: opacity 1.6s var(--ease);
+pointer-events: none;
+}
+.hero-canvas[data-ready='true'] { opacity: 1; }
+.hero::after {
+content: '';
+position: absolute; inset: 0; z-index: -1;
+background:
+linear-gradient(to right, var(--ink) 2%, color-mix(in srgb, var(--ink) 62%, transparent) 34%, transparent 55%),
+radial-gradient(58% 62% at 73.5% 46%, transparent 12%, var(--ink) 86%),
+linear-gradient(to bottom, transparent 58%, var(--ink) 100%);
+pointer-events: none;
+}
+.hero-inner { position: relative; }
+.hero-eyebrow {
+display: flex; align-items: center; gap: 0.7rem;
+color: var(--fg-3); margin-bottom: clamp(1.5rem, 1rem + 1.6vw, 2.4rem);
+}
+.hero-eyebrow .dot {
+width: 6px; height: 6px; border-radius: 50%; background: var(--web);
+box-shadow: 0 0 0 4px var(--web-soft);
+}
+.hero h1 {
+font-family: var(--font-serif);
+font-size: var(--t-h1);
+font-weight: 400;
+letter-spacing: -0.038em;
+line-height: 0.92;
+margin-bottom: clamp(1.1rem, 0.7rem + 1.4vw, 1.8rem);
+}
+.hero-roles {
+display: flex; flex-wrap: wrap; align-items: center;
+gap: 0.55rem 0.9rem;
+margin-bottom: clamp(1.8rem, 1.2rem + 2vw, 2.75rem);
+font-size: clamp(0.95rem, 0.88rem + 0.32vw, 1.15rem);
+color: var(--fg-2);
+letter-spacing: -0.01em;
+}
+.hero-roles .r-web { color: var(--web); }
+.hero-roles .r-ml { color: var(--ml); }
+.hero-roles .sep { width: 4px; height: 4px; border-radius: 50%; background: var(--fg-4); }
+.hero-lede {
+font-size: var(--t-lead);
+line-height: 1.55;
+color: var(--fg);
+max-width: 40ch;
+text-wrap: pretty;
+letter-spacing: -0.012em;
+}
+.hero-sub {
+margin-top: 1.15rem;
+color: var(--fg-3);
+max-width: 52ch;
+font-size: var(--t-sm);
+line-height: 1.7;
+text-wrap: pretty;
+}
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: clamp(2rem, 1.4rem + 2vw, 2.9rem); }
+.hero-stats {
+margin-top: clamp(3rem, 2rem + 4vw, 5rem);
+display: grid;
+grid-template-columns: repeat(var(--stats, 4), minmax(0, 1fr));
+gap: 1px;
+background: var(--line);
+border-block: 1px solid var(--line);
+}
+.hero-stat { background: var(--ink); padding: 1.25rem 1.35rem 1.35rem; }
+.hero-stat dd {
+font-family: var(--font-serif);
+font-size: clamp(1.85rem, 1.3rem + 2.2vw, 2.9rem);
+font-weight: 400;
+letter-spacing: -0.03em;
+line-height: 1;
+font-variant-numeric: tabular-nums;
+margin: 0 0 0.55rem;
+}
+.hero-stat dt { color: var(--fg-3); font-size: 0.775rem; line-height: 1.42; }
+@media (max-width: 860px) {
+.hero-stats[data-stats='4'] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+.hero-canvas { display: none; }
+.hero::after { background: none; }
+.hero { min-height: auto; padding-bottom: 3rem; }
+}
+@media (max-width: 520px) {
+.hero-roles { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
+.hero-roles .sep { display: none; }
+}
+@media (max-width: 420px) {
+.hero-stat { padding: 1rem 0.9rem 1.1rem; }
+}
+.identity-split {
+display: grid;
+grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+gap: clamp(2rem, 1rem + 4vw, 5rem);
+align-items: start;
+}
+.now {
+display: grid;
+gap: 1px;
+background: var(--line);
+border: 1px solid var(--line);
+border-radius: var(--r-lg);
+overflow: hidden;
+margin: 0;
+box-shadow: var(--shadow-card);
+}
+.now-row {
+background: var(--ink-2);
+padding: 1.05rem 1.35rem 1.2rem;
+display: grid;
+gap: 0.42rem;
+transition: background 0.3s var(--ease);
+}
+.now-row:hover { background: var(--surface); }
+.now-row dt { color: var(--fg-4); }
+.now-row dd { margin: 0; display: grid; gap: 0.22rem; }
+.now-row dd b { font-weight: 500; font-size: 0.94rem; color: var(--fg); letter-spacing: -0.012em; }
+.now-row dd span { color: var(--fg-3); font-size: 0.795rem; line-height: 1.45; }
+.identity-side { display: grid; gap: 1rem; align-content: start; }
+@media (max-width: 880px) {
+.identity-split { grid-template-columns: minmax(0, 1fr); gap: 2.75rem; }
+.identity-side {
+grid-template-columns: minmax(0, 20rem) minmax(0, 1fr);
+gap: 1.5rem;
+align-items: start;
+}
+}
+@media (max-width: 620px) {
+.identity-side { grid-template-columns: minmax(0, 1fr); }
+.identity-side .portrait { max-width: 21rem; }
+}
+.statement {
+font-family: var(--font-serif);
+font-size: clamp(1.35rem, 1rem + 1.55vw, 2.15rem);
+font-weight: 300;
+line-height: 1.34;
+letter-spacing: -0.024em;
+color: var(--fg);
+max-width: 34ch;
+text-wrap: pretty;
+}
+.statement-src { margin-top: 1.4rem; color: var(--fg-4); }
+.disciplines {
+margin-top: clamp(3.5rem, 2rem + 5vw, 6rem);
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+gap: 1px;
+background: var(--line);
+border: 1px solid var(--line);
+border-radius: var(--r-lg);
+overflow: hidden;
+box-shadow: var(--shadow-card);
+}
+.discipline {
+background: var(--ink-2);
+padding: clamp(1.75rem, 1.2rem + 2vw, 2.9rem);
+position: relative;
+transition: background 0.4s var(--ease);
+}
+.discipline::before {
+content: '';
+position: absolute; inset: 0 0 auto 0; height: 2px;
+background: var(--tone-fg);
+scale: 0 1;
+transform-origin: 0 50%;
+transition: scale 0.7s var(--ease);
+}
+.discipline.is-in::before { scale: 1 1; }
+.discipline:hover { background: var(--surface); }
+.discipline h3 {
+font-family: var(--font-serif);
+font-size: var(--t-h3);
+font-weight: 400;
+margin: 1.35rem 0 1rem;
+letter-spacing: -0.025em;
+}
+.discipline p { color: var(--fg-2); font-size: var(--t-sm); line-height: 1.72; text-wrap: pretty; }
+.discipline ul { margin-top: 1.6rem; display: grid; gap: 0.72rem; }
+.discipline li {
+display: grid; grid-template-columns: 14px 1fr; gap: 0.75rem;
+color: var(--fg-3); font-size: 0.845rem; line-height: 1.5;
+}
+.discipline li::before {
+content: ''; width: 5px; height: 5px; border-radius: 1px;
+background: var(--tone-fg); opacity: 0.7; margin-top: 0.5em; translate: 4px 0;
+}
+.projects { display: grid; gap: 1px; background: var(--line); border-block: 1px solid var(--line); }
+.project {
+background: var(--ink);
+transition: background 0.35s var(--ease);
+}
+.project:hover { background: var(--ink-2); }
+.project[data-open='true'] { background: var(--ink-2); }
+.project-head {
+width: 100%;
+display: grid;
+grid-template-columns: 2.6rem minmax(0, 1fr) auto;
+align-items: start;
+gap: clamp(1rem, 0.5rem + 1.6vw, 2rem);
+padding: clamp(1.6rem, 1.1rem + 1.8vw, 2.4rem) 0;
+text-align: left;
+}
+.project-idx {
+font-family: var(--font-mono);
+font-size: var(--t-mono);
+color: var(--fg-5);
+padding-top: 0.55rem;
+font-variant-numeric: tabular-nums;
+}
+.project-title {
+display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.65rem 0.95rem;
+}
+.project-title h3 {
+font-family: var(--font-serif);
+font-size: var(--t-h3);
+font-weight: 400;
+letter-spacing: -0.025em;
+}
+.project-meta { display: block; color: var(--fg-3); font-size: var(--t-sm); margin-top: 0.55rem; }
+.project-meta .sep { color: var(--fg-4); margin-inline: 0.5rem; }
+.project-tagline {
+display: block;
+margin-top: 0.85rem;
+color: var(--fg-2);
+font-size: var(--t-sm);
+line-height: 1.6;
+max-width: 56ch;
+text-wrap: pretty;
+}
+.project-toggle {
+display: grid; place-items: center;
+width: 38px; height: 38px;
+border: 1px solid var(--line-mid);
+border-radius: 100px;
+color: var(--fg-2);
+margin-top: 0.3rem;
+transition: border-color 0.25s var(--ease), background 0.25s var(--ease), rotate 0.4s var(--ease);
+flex: none;
+}
+.project-head:hover .project-toggle { border-color: var(--line-strong); background: var(--surface-2); }
+.project[data-open='true'] .project-toggle { rotate: 45deg; border-color: var(--tone-line); color: var(--tone-fg); }
+.project-body {
+display: grid;
+grid-template-rows: 1fr;
+}
+.js .project-body {
+grid-template-rows: 0fr;
+transition: grid-template-rows 0.55s var(--ease);
+}
+.js .project[data-open='true'] .project-body { grid-template-rows: 1fr; }
+.project-body > div { overflow: hidden; }
+.project-detail {
+display: grid;
+grid-template-columns: 2.6rem minmax(0, 1fr);
+gap: clamp(1rem, 0.5rem + 1.6vw, 2rem);
+padding-bottom: clamp(2rem, 1.4rem + 2vw, 3rem);
+}
+.project-detail > .spacer { display: block; }
+.project-summary { color: var(--fg-2); max-width: 62ch; line-height: 1.72; text-wrap: pretty; }
+.project-metrics {
+display: flex; flex-wrap: wrap;
+gap: 1px;
+margin: 1.85rem 0;
+background: var(--line);
+border: 1px solid var(--line);
+border-radius: var(--r-md);
+overflow: hidden;
+box-shadow: var(--shadow-card);
+}
+.project-metric { background: var(--ink); padding: 0.95rem 1.25rem; flex: 1 1 150px; }
+.project-metric b {
+display: block;
+font-family: var(--font-serif);
+font-size: 1.5rem; font-weight: 400; letter-spacing: -0.025em;
+color: var(--tone-fg);
+line-height: 1.1;
+}
+.project-metric span { display: block; color: var(--fg-3); font-size: 0.775rem; margin-top: 0.3rem; }
+.project-highlights { display: grid; gap: 1.35rem; margin-top: 0.5rem; }
+.project-highlights > li {
+display: grid;
+grid-template-columns: minmax(0, 13rem) minmax(0, 1fr);
+gap: 0.4rem 2rem;
+padding-top: 1.35rem;
+border-top: 1px solid var(--line);
+}
+.project-highlights h4 {
+font-size: 0.86rem; font-weight: 600; color: var(--fg);
+letter-spacing: -0.005em;
+}
+.project-highlights p { color: var(--fg-3); font-size: 0.865rem; line-height: 1.7; text-wrap: pretty; }
+.project-foot {
+margin-top: 2rem; padding-top: 1.4rem;
+border-top: 1px solid var(--line);
+display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; justify-content: space-between;
+}
+.stack-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.project-links { display: flex; flex-wrap: wrap; gap: 1.2rem; }
+.project-note { color: var(--fg-4); font-size: 0.78rem; margin-top: 1rem; }
+@media (max-width: 760px) {
+.project-head { grid-template-columns: minmax(0, 1fr) auto; gap: 1rem; }
+.project-idx { display: none; }
+.project-detail { grid-template-columns: minmax(0, 1fr); }
+.project-detail > .spacer { display: none; }
+.project-highlights > li { grid-template-columns: minmax(0, 1fr); gap: 0.55rem; }
+}
+.timeline { position: relative; display: grid; gap: 0; }
+.timeline::before {
+content: '';
+position: absolute;
+left: 6px; top: 0.75rem; bottom: 0.75rem;
+width: 1px;
+background: var(--line);
+}
+.timeline-progress {
+position: absolute;
+left: 6px; top: 0.75rem;
+width: 1px;
+background: linear-gradient(to bottom, var(--web), var(--ml));
+height: 0;
+transition: height 0.15s linear;
+}
+.tl-item {
+position: relative;
+padding: clamp(1.6rem, 1.1rem + 1.6vw, 2.3rem) 0 clamp(1.6rem, 1.1rem + 1.6vw, 2.3rem) clamp(2rem, 1.4rem + 2vw, 3.2rem);
+border-bottom: 1px solid var(--line);
+}
+.tl-item:last-child { border-bottom: 0; }
+.tl-item::before {
+content: '';
+position: absolute;
+left: 0; top: clamp(2rem, 1.5rem + 1.6vw, 2.7rem);
+width: 13px; height: 13px;
+border-radius: 50%;
+background: var(--ink);
+border: 1px solid var(--line-strong);
+transition: border-color 0.4s var(--ease), background 0.4s var(--ease), scale 0.4s var(--ease);
+}
+.tl-item.is-in::before { border-color: var(--tone-fg); background: var(--tone-fg); scale: 1.05; }
+.tl-top { display: flex; flex-wrap: wrap; gap: 0.6rem 1rem; align-items: baseline; justify-content: space-between; }
+.tl-role { font-size: var(--t-h4); font-weight: 600; letter-spacing: -0.018em; color: var(--fg); }
+.tl-period { font-family: var(--font-mono); font-size: var(--t-mono); color: var(--fg-3); white-space: nowrap; }
+.tl-org { margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem 0.75rem; align-items: baseline; }
+.tl-org b { font-family: var(--font-serif); font-size: 1.06rem; font-weight: 400; color: var(--tone-fg); }
+.tl-org span { color: var(--fg-4); font-size: 0.82rem; }
+.tl-advisor { margin-top: 0.65rem; color: var(--fg-3); font-size: 0.82rem; font-style: italic; }
+.tl-points { margin-top: 1.15rem; display: grid; gap: 0.7rem; max-width: 68ch; }
+.tl-points li {
+display: grid; grid-template-columns: 12px minmax(0, 1fr); gap: 0.75rem;
+color: var(--fg-2); font-size: 0.875rem; line-height: 1.68; text-wrap: pretty;
+}
+.tl-points li::before {
+content: ''; width: 4px; height: 4px; border-radius: 50%;
+background: var(--fg-5); margin-top: 0.62em; translate: 4px 0;
+}
+.certs {
+margin-top: 2.5rem; display: grid; gap: 1px;
+background: var(--line); border: 1px solid var(--line);
+border-radius: var(--r-lg); overflow: hidden;
+box-shadow: var(--shadow-card);
+}
+.cert {
+background: var(--ink-2);
+padding: 1.15rem clamp(1.2rem, 1rem + 1vw, 1.8rem);
+display: flex; flex-wrap: wrap; gap: 0.6rem 1.25rem; align-items: baseline; justify-content: space-between;
+transition: background 0.25s var(--ease);
+}
+.cert:hover { background: var(--surface); }
+.cert-name { font-size: 0.9rem; color: var(--fg); display: inline-flex; align-items: center; gap: 0.5rem; }
+.cert-name svg { opacity: 0.55; }
+.cert-score { font-family: var(--font-mono); font-size: var(--t-mono); color: var(--ml); }
+.filters { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 2.25rem; }
+.filter {
+padding: 0.42rem 0.95rem;
+border-radius: 100px;
+border: 1px solid var(--line-mid);
+color: var(--fg-3);
+font-size: 0.8rem;
+transition: color 0.22s var(--ease), border-color 0.22s var(--ease), background 0.22s var(--ease);
+}
+.filter:hover { color: var(--fg); border-color: var(--line-strong); }
+.filter[aria-pressed='true'] { background: var(--fg); color: var(--ink); border-color: var(--fg); font-weight: 600; }
+.filter .n { opacity: 0.55; margin-left: 0.35rem; font-variant-numeric: tabular-nums; }
+.honours-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+gap: 1rem;
+}
+.honour {
+position: relative;
+display: flex; flex-direction: column;
+gap: 0.8rem;
+padding: 1.5rem 1.5rem 1.65rem;
+border: 1px solid var(--line);
+border-radius: var(--r-md);
+background: var(--ink-2);
+overflow: hidden;
+box-shadow: var(--shadow-card);
+transition: border-color 0.3s var(--ease), background 0.3s var(--ease),
+box-shadow 0.3s var(--ease), transform 0.4s var(--ease);
+}
+.honour::before {
+content: '';
+position: absolute; inset: 0;
+background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 0%),
+color-mix(in srgb, var(--rank-c) 9%, transparent), transparent 62%);
+opacity: 0;
+transition: opacity 0.35s var(--ease);
+pointer-events: none;
+}
+.honour:hover {
+border-color: var(--line-mid);
+background: var(--surface);
+box-shadow: var(--shadow-lift);
+transform: translateY(-3px);
+}
+.honour:hover::before { opacity: 1; }
+.honour[hidden] { display: none; }
+.honour { --rank-c: var(--fg-2); }
+.honour[data-tier='gold'] { --rank-c: var(--ml); }
+.honour[data-tier='silver'] { --rank-c: var(--tier-silver); }
+.honour[data-tier='bronze'] { --rank-c: var(--tier-bronze); }
+.honour-rank {
+display: inline-flex; align-items: center; gap: 0.45rem;
+color: var(--rank-c);
+font-family: var(--font-mono);
+font-size: var(--t-mono);
+letter-spacing: 0.08em;
+text-transform: uppercase;
+font-weight: 600;
+width: fit-content;
+}
+.honour-rank::before {
+content: ''; width: 6px; height: 6px; rotate: 45deg;
+background: var(--rank-c);
+}
+.honour h3 {
+font-family: var(--font-serif);
+font-size: 1.16rem; font-weight: 400; line-height: 1.24; letter-spacing: -0.018em;
+text-wrap: balance;
+}
+.honour-meta { color: var(--fg-3); font-size: 0.795rem; line-height: 1.5; }
+.honour-meta .scale { color: var(--fg); font-weight: 500; }
+.honour p { color: var(--fg-3); font-size: 0.835rem; line-height: 1.65; margin-top: auto; padding-top: 0.35rem; text-wrap: pretty; }
+.skills { display: grid; gap: 0; }
+.skill-group {
+display: grid;
+grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+gap: 0.85rem 2.5rem;
+padding: clamp(1.4rem, 1.1rem + 1.2vw, 2rem) 0;
+border-top: 1px solid var(--line);
+align-items: start;
+}
+.skill-group:last-child { border-bottom: 1px solid var(--line); }
+.skill-group h3 {
+font-size: 0.94rem; font-weight: 600; letter-spacing: -0.01em;
+display: flex; align-items: center; gap: 0.65rem;
+}
+.skill-group h3::before {
+content: ''; width: 6px; height: 6px; border-radius: 50%;
+background: var(--tone-fg); flex: none;
+}
+.skill-items { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+@media (max-width: 700px) { .skill-group { grid-template-columns: minmax(0, 1fr); } }
+.contact { text-align: left; }
+.contact-top {
+display: grid;
+grid-template-columns: minmax(0, 1fr) minmax(0, clamp(14rem, 24vw, 20rem));
+gap: clamp(2rem, 1rem + 4vw, 4.5rem);
+align-items: end;
+}
+.contact-top--solo { grid-template-columns: minmax(0, 1fr); }
+@media (max-width: 820px) {
+.contact-top { grid-template-columns: minmax(0, 1fr); }
+.contact-top .portrait { max-width: 19rem; margin-top: 2.75rem; }
+}
+.contact-title {
+font-family: var(--font-serif);
+font-size: clamp(2.1rem, 1.35rem + 3.3vw, 4.4rem);
+font-weight: 400; letter-spacing: -0.034em; line-height: 1.02;
+max-width: 20ch;
+text-wrap: balance;
+}
+.contact-body { margin-top: 1.75rem; color: var(--fg-2); font-size: var(--t-lead); line-height: 1.6; max-width: 54ch; text-wrap: pretty; }
+.contact-actions { margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: 0.7rem; }
+.contact-links {
+margin-top: clamp(3rem, 2rem + 3vw, 4.5rem);
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+gap: 1px;
+background: var(--line);
+border-block: 1px solid var(--line);
+}
+.contact-link {
+background: var(--ink);
+padding: 1.35rem 1.5rem 1.5rem;
+display: grid; gap: 0.4rem;
+transition: background 0.3s var(--ease);
+}
+.contact-link:hover { background: var(--surface); }
+.contact-link .k { color: var(--fg-4); font-family: var(--font-mono); font-size: var(--t-mono); }
+.contact-link .v {
+display: flex; align-items: center; gap: 0.5rem;
+font-size: 0.95rem; color: var(--fg); letter-spacing: -0.01em;
+overflow-wrap: anywhere;
+}
+.contact-link .v svg { flex: none; }
+.contact-link .v .arr { opacity: 0; translate: -4px 0; transition: opacity 0.25s var(--ease), translate 0.25s var(--ease); }
+.contact-link:hover .v .arr { opacity: 0.6; translate: 0 0; }
+.mail-help {
+position: fixed;
+left: 50%;
+bottom: max(1.25rem, env(safe-area-inset-bottom));
+z-index: 150;
+width: min(100% - 2rem, 32rem);
+display: grid;
+gap: 0.95rem;
+padding: 1.15rem 1.25rem 1.25rem;
+background: var(--surface-2);
+border: 1px solid var(--line-mid);
+border-radius: var(--r-md);
+box-shadow: var(--shadow-lift);
+opacity: 0;
+translate: -50% 0.75rem;
+transition: opacity 0.3s var(--ease), translate 0.3s var(--ease);
+}
+.mail-help[hidden] { display: none; }
+.mail-help[data-open='true'] { opacity: 1; translate: -50% 0; }
+.mail-help-text { color: var(--fg-2); font-size: var(--t-sm); line-height: 1.55; padding-right: 2.25rem; overflow-wrap: anywhere; }
+.mail-help-text b { display: block; color: var(--fg); font-weight: 600; margin-bottom: 0.2rem; }
+.mail-help-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.mail-help-actions .btn { padding: 0.58rem 1.05rem; font-size: 0.8rem; }
+.mail-help-close {
+position: absolute; top: 0.65rem; right: 0.65rem;
+display: grid; place-items: center;
+width: 32px; height: 32px;
+border-radius: 100px;
+color: var(--fg-3);
+transition: color 0.2s var(--ease), background 0.2s var(--ease);
+}
+.mail-help-close:hover { color: var(--fg); background: var(--surface-3); }
+.footer-note a { border-bottom: 1px solid var(--line-mid); transition: color 0.2s var(--ease), border-color 0.2s var(--ease); }
+.footer-note a:hover { color: var(--fg); border-color: var(--fg-3); }
+.js .reveal {
+opacity: 0;
+translate: 0 18px;
+transition: opacity 0.7s var(--ease), translate 0.7s var(--ease);
+transition-delay: var(--d, 0ms);
+}
+.js .reveal.is-in { opacity: 1; translate: 0 0; }
+.js .lines { display: block; }
+.js .line-mask {
+display: block;
+overflow: hidden;
+padding-top: 0.18em;
+margin-top: -0.18em;
+}
+.js .line-inner {
+display: block;
+translate: 0 105%;
+transition: translate 0.95s var(--ease);
+transition-delay: var(--d, 0ms);
+}
+.js .lines.is-in .line-inner { translate: 0 0; }
+.magnetic { transition: transform 0.45s var(--ease); }
+.counter { display: inline-block; font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: reduce) {
+html { scroll-behavior: auto !important; }
+*, *::before, *::after {
+animation-duration: 0.001ms !important;
+animation-iteration-count: 1 !important;
+transition-duration: 0.001ms !important;
+scroll-behavior: auto !important;
+}
+.js .reveal { opacity: 1 !important; translate: none !important; }
+.js .line-inner { translate: none !important; }
+.magnetic { transform: none !important; }
+.hero-canvas { display: none; }
+.project-body { transition: none; }
+}
+@media print {
+:root {
+color-scheme: light;
+--ink: #fff; --ink-2: #fff; --surface: #fff; --surface-2: #fff; --surface-3: #fff;
+--line: #ddd; --line-mid: #ccc; --line-strong: #999;
+--fg: #111; --fg-2: #333; --fg-3: #444; --fg-4: #555; --fg-5: #888;
+--web: #1b3ea8; --web-soft: transparent; --web-line: #99a8d0;
+--ml: #7a4f08; --ml-soft: transparent; --ml-line: #cbb08a;
+--chip-bg: transparent; --tag-bg: transparent;
+--tier-silver: #555; --tier-bronze: #7a4f08;
+--shadow-card: none; --shadow-lift: none;
+}
+.nav, .nav-sheet, .progress, .hero-canvas, .project-toggle,
+.filters, .theme-toggle, .mail-help { display: none !important; }
+body { background: #fff; color: #111; }
+.js .reveal, .js .line-inner { opacity: 1 !important; translate: none !important; }
+.project-body { grid-template-rows: 1fr !important; }
+.section { padding-block: 1.5rem; }
+.portrait { break-inside: avoid; }
+}
+html:not(.js) .project-toggle,
+html:not(.js) .filters,
+html:not(.js) .nav-toggle,
+html:not(.js) .nav-sheet,
+html:not(.js) .theme-toggle,
+html:not(.js) .progress { display: none; }
+html:not(.js) .project-head { cursor: default; grid-template-columns: 2.6rem minmax(0, 1fr); }
+@media (max-width: 900px) {
+html:not(.js) .nav { position: static; height: auto; padding-block: 0.85rem 0.6rem; }
+html:not(.js) .nav-inner { flex-wrap: wrap; row-gap: 0.6rem; }
+html:not(.js) .nav-links { display: flex; flex-wrap: wrap; gap: 0.1rem; }
+html:not(.js) .hero { padding-top: 2rem; }
+}</style>
+<script type="module" src="assets/js/main.js"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Krish Masand","url":"https://krishmasand7.github.io","email":"mailto:krishmasand7@gmail.com","jobTitle":["Web & Android Developer","AI/ML Developer"],"description":"Web, Android and AI/ML developer. B.Tech Computer Science & Engineering student at Sipna College of Engineering & Technology, Amravati.","address":{"@type":"PostalAddress","addressLocality":"Amravati","addressRegion":"Maharashtra","addressCountry":"IN"},"affiliation":{"@type":"CollegeOrUniversity","name":"Sipna College of Engineering & Technology"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Dr. Panjabrao Deshmukh Polytechnic"},"knowsAbout":["Full-stack web development","Android development","Machine learning","Node.js","React","MongoDB","TensorFlow","PyTorch"],"sameAs":["https://github.com/KrishMasand7","https://www.linkedin.com/in/krish-masand-63264727a/"]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="progress" data-progress aria-hidden="true"></div>
+<header class="nav" data-nav>
+  <div class="shell nav-inner">
+    <a class="brand" href="#top">
+      <span class="brand-dot" aria-hidden="true"></span>
+      <span>Krish Masand</span>
+      <span class="brand-sub" aria-hidden="true">Web / AI·ML</span>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#about" data-nav-link>About</a><a href="#projects" data-nav-link>Projects</a><a href="#journey" data-nav-link>Journey</a><a href="#skills" data-nav-link>Skills</a>
+    </nav>
+    <div class="nav-cta">
+      
+<button class="theme-toggle" type="button" data-theme-toggle
+        aria-label="Switch to the light theme" title="Switch theme">
+  <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="i-sun"><circle cx="8" cy="8" r="3.1"/><path d="M8 1.4v1.5M8 13.1v1.5M14.6 8h-1.5M2.9 8H1.4M12.67 3.33l-1.06 1.06M4.39 11.61l-1.06 1.06M12.67 12.67l-1.06-1.06M4.39 4.39 3.33 3.33"/></svg><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="i-moon"><path d="M13.4 9.42A5.7 5.7 0 0 1 6.58 2.6a5.75 5.75 0 1 0 6.82 6.82Z"/></svg>
+</button>
+      <a class="btn" href="#contact">Get in touch <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="arr"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-sheet">
+        <span></span><span></span><span></span>
+        <span class="vh">Menu</span>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="nav-sheet" id="nav-sheet" data-nav-sheet aria-hidden="true">
+  <a href="#about"><span class="idx">01</span>About</a><a href="#projects"><span class="idx">02</span>Projects</a><a href="#journey"><span class="idx">03</span>Journey</a><a href="#skills"><span class="idx">04</span>Skills</a>
+  <a href="#contact"><span class="idx">05</span>Contact</a>
+  <div class="sheet-foot">
+    <a class="xlink" href="https://github.com/KrishMasand7" target="_blank" rel="noopener noreferrer">GitHub<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h7v7"/><path d="M13 3 6.5 9.5"/><path d="M11 10.5V13H3V5h2.5"/></svg></a>
+    <a class="xlink" href="https://www.linkedin.com/in/krish-masand-63264727a/" target="_blank" rel="noopener noreferrer">LinkedIn<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h7v7"/><path d="M13 3 6.5 9.5"/><path d="M11 10.5V13H3V5h2.5"/></svg></a>
+  </div>
+</div>
+<main id="main">
+
+<section class="hero" id="top">
+  <canvas class="hero-canvas" data-wave aria-hidden="true"></canvas>
+  <div class="shell hero-inner">
+    <p class="hero-eyebrow mono" data-reveal><span class="dot" aria-hidden="true"></span>Amravati, India</p>
+
+    <h1 data-reveal="lines"><span class="line-mask"><span class="line-inner" style="--d:0ms">Krish</span></span><span class="line-mask"><span class="line-inner" style="--d:90ms">Masand</span></span></h1>
+
+    <p class="hero-roles" data-reveal style="--d:260ms">
+      <span class="r-web">Web &amp; Android Developer</span>
+      <span class="sep" aria-hidden="true"></span>
+      <span class="r-ml">AI/ML Developer</span>
+    </p>
+
+    <p class="hero-lede" data-reveal style="--d:340ms">I build full-stack web apps and Android apps, and I work with machine-learning models in Python.</p>
+    <p class="hero-sub" data-reveal style="--d:420ms">Second-year B.Tech student in Computer Science &amp; Engineering at Sipna College of Engineering &amp; Technology, with a diploma from Dr. Panjabrao Deshmukh Polytechnic and a three-month Android development internship at UEF Pvt. Ltd.</p>
+
+    <div class="hero-actions" data-reveal style="--d:500ms">
+      <a class="btn magnetic" data-magnetic href="#projects">See my projects <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="arr"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      <a class="btn btn--ghost magnetic" data-magnetic href="https://github.com/KrishMasand7" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M8 0a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38l-.01-1.34c-2.22.48-2.69-1.07-2.69-1.07-.36-.93-.89-1.17-.89-1.17-.73-.5.05-.49.05-.49.8.06 1.23.83 1.23.83.71 1.23 1.87.87 2.33.67.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.19c0 .21.14.46.55.38A8 8 0 0 0 8 0Z"/></svg><span>GitHub profile</span><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h7v7"/><path d="M13 3 6.5 9.5"/><path d="M11 10.5V13H3V5h2.5"/></svg></a>
+    </div>
+
+    <dl class="hero-stats" data-stats="4" data-reveal style="--d:580ms;--stats:4">
+      <div class="hero-stat">
+        <dd><span class="counter" data-count="21">21</span></dd>
+        <dt>Languages, frameworks<br>&amp; tools</dt>
+      </div><div class="hero-stat">
+        <dd><span class="counter" data-count="3">3</span></dd>
+        <dt>Projects<br>built</dt>
+      </div><div class="hero-stat">
+        <dd><span class="counter" data-count="3">3</span></dd>
+        <dt>Months of Android<br>internship</dt>
+      </div><div class="hero-stat">
+        <dd><span class="counter" data-count="2">2</span>nd</dd>
+        <dt>Year of B.Tech in<br>Computer Science</dt>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<section class="section" id="about" aria-labelledby="about-title">
+  <div class="shell">
+    <div class="sec-head">
+      <p class="sec-kicker mono" data-reveal>About</p>
+      <h2 class="sec-title" id="about-title" data-reveal style="--d:80ms">Building apps. Learning from data.</h2>
+    </div>
+
+    <div class="identity-split">
+      <div>
+        <p class="statement" data-reveal>I am a Computer Science &amp; Engineering student in Amravati. Most of my time goes into building apps: full-stack web apps with Node.js, Express, React and MongoDB, and Android apps like FixMyCity. Alongside that, I work with machine learning in Python.</p>
+        
+      </div>
+      <div class="identity-side" data-reveal style="--d:180ms">
+        
+<figure class="portrait portrait--studio">
+  <img src="assets/img/portrait-studio.webp" alt="Krish Masand, studio portrait"
+       width="760" height="705"
+       loading="eager" fetchpriority="low" decoding="async">
+</figure>
+        <dl class="now">
+          <div class="now-row">
+            <dt class="mono">Studying</dt>
+            <dd><b>B.Tech, Computer Science &amp; Engineering</b><span>Sipna College of Engineering &amp; Technology, Amravati · Second year</span></dd>
+          </div><div class="now-row">
+            <dt class="mono">Diploma</dt>
+            <dd><b>Dr. Panjabrao Deshmukh Polytechnic</b><span>Amravati · Completed</span></dd>
+          </div><div class="now-row">
+            <dt class="mono">Internship</dt>
+            <dd><b>Android Development Intern, UEF Pvt. Ltd.</b><span>Three months, during the diploma</span></dd>
+          </div><div class="now-row">
+            <dt class="mono">Building</dt>
+            <dd><b>FixMyCity</b><span>Android app for civic complaints · citizen, admin and worker roles</span></dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="disciplines">
+      <article class="discipline tone tone-web" data-inview style="--d:0ms">
+        <p class="chip">Web &amp; Android</p>
+        <h3>From the database to the screen.</h3>
+        <p>On the web I work across the stack: Node.js and Express on the server, MongoDB or SQL for data, and React, Tailwind CSS or Bootstrap on the page. On Android I build with Java and XML layouts, which is what my internship at UEF Pvt. Ltd. was about. FixMyCity is my largest app so far, with separate flows for citizens, admins and workers.</p>
+        <ul><li><span>Frontend: HTML, CSS, React, Tailwind CSS, Bootstrap</span></li><li><span>Backend: Node.js, Express.js, PHP</span></li><li><span>Databases: MongoDB, SQL</span></li><li><span>Android: Java with XML layouts</span></li></ul>
+      </article><article class="discipline tone tone-ml" data-inview style="--d:120ms">
+        <p class="chip">AI &amp; machine learning</p>
+        <h3>Models that learn from data.</h3>
+        <p>My machine-learning work is in Python. NumPy handles the numerical side, scikit-learn covers classical models and ensemble methods, and TensorFlow and PyTorch are what I use for neural networks.</p>
+        <ul><li><span>Deep learning: TensorFlow, PyTorch</span></li><li><span>Classical ML: scikit-learn, ensemble methods</span></li><li><span>Numerical computing: Python, NumPy</span></li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="projects" aria-labelledby="projects-title">
+  <div class="shell">
+    <div class="sec-head">
+      <p class="sec-kicker mono" data-reveal>Projects</p>
+      <h2 class="sec-title" id="projects-title" data-reveal style="--d:80ms">Things I have built.</h2>
+      <p class="sec-summary" data-reveal style="--d:160ms">An Android app for civic complaints, a full-stack task manager, and a storefront layout in plain HTML and CSS. Open any of them for the details.</p>
+    </div>
+  </div>
+  <div class="projects">
+<article class="project tone tone-web" data-disclosure data-open="true">
+  <h3 class="vh">FixMyCity</h3>
+  <div class="shell">
+    <button class="project-head" type="button" data-disclosure-btn
+            aria-expanded="true" aria-controls="proj-fixmycity">
+      <span class="project-idx" aria-hidden="true">01</span>
+      <span>
+        <span class="project-title">
+          <h3>FixMyCity</h3>
+          <span class="chip">Android app</span>
+        </span>
+        <span class="project-meta">Developer</span>
+        <span class="project-tagline">A civic complaint, from a photo on a phone to the municipal corporation.</span>
+      </span>
+      <span class="project-toggle" aria-hidden="true"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3.5v9M3.5 8h9"/></svg></span>
+    </button>
+
+    <div class="project-body" id="proj-fixmycity" data-disclosure-panel>
+      <div>
+        <div class="project-detail">
+          <div class="spacer" aria-hidden="true"></div>
+          <div>
+            <p class="project-summary">An Android app for reporting problems in the city. A resident takes a photo of the problem and registers a complaint, which raises a ticket for the municipal corporation. An admin assigns the work to a worker, and the worker reports the details of the job back to the admin.</p>
+
+            <div class="project-metrics"><div class="project-metric"><b>3</b><span>roles: citizen, admin, worker</span></div><div class="project-metric"><b>Photo</b><span>attached to every complaint</span></div><div class="project-metric"><b>Ticket</b><span>raised for each report</span></div></div>
+
+            <ul class="project-highlights"><li><h4>Citizen</h4><p>Registers a complaint by adding a photo of the problem. Submitting it raises a ticket that goes to the municipal corporation.</p></li><li><h4>Admin</h4><p>Receives the tickets and assigns the work to a worker.</p></li><li><h4>Worker</h4><p>Carries out the assigned work and sends the details of it back to the admin.</p></li></ul>
+
+            
+
+            <div class="project-foot">
+              <ul class="stack-list"><li class="tag">Android</li><li class="tag">Java</li><li class="tag">XML</li></ul>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+<article class="project tone tone-web" data-disclosure data-open="false">
+  <h3 class="vh">Task Manager</h3>
+  <div class="shell">
+    <button class="project-head" type="button" data-disclosure-btn
+            aria-expanded="false" aria-controls="proj-task-manager">
+      <span class="project-idx" aria-hidden="true">02</span>
+      <span>
+        <span class="project-title">
+          <h3>Task Manager</h3>
+          <span class="chip">Full-stack web</span>
+        </span>
+        <span class="project-meta">Developer<span class="sep" aria-hidden="true">—</span>Feb 2025</span>
+        <span class="project-tagline">A task-management web app on Node.js, Express and MongoDB, rendered on the server with EJS.</span>
+      </span>
+      <span class="project-toggle" aria-hidden="true"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3.5v9M3.5 8h9"/></svg></span>
+    </button>
+
+    <div class="project-body" id="proj-task-manager" data-disclosure-panel>
+      <div>
+        <div class="project-detail">
+          <div class="spacer" aria-hidden="true"></div>
+          <div>
+            <p class="project-summary">Create a task, mark it complete, delete it, and filter the list to all, completed or to-do. Pages are rendered on the server with EJS, while completing and deleting run through fetch calls, so the list updates in place without a reload.</p>
+
+            <div class="project-metrics"><div class="project-metric"><b>5</b><span>Express routes</span></div><div class="project-metric"><b>3</b><span>list filters</span></div><div class="project-metric"><b>MVC</b><span>project layout</span></div></div>
+
+            <ul class="project-highlights"><li><h4>Layered structure</h4><p>The Mongoose model, the Express router and the controller functions each live in their own folder. The entry point only sets up middleware, connects to MongoDB and mounts the routes.</p></li><li><h4>PUT and DELETE from the browser</h4><p>Completing and deleting are PUT and DELETE endpoints that answer in JSON. The page calls them with fetch and updates the card when the request succeeds, fading a deleted task out rather than reloading.</p></li><li><h4>Views</h4><p>ejs-mate layouts give every page one shared boilerplate with header and footer partials. Bootstrap styles the cards and the new-task form.</p></li></ul>
+
+            
+
+            <div class="project-foot">
+              <ul class="stack-list"><li class="tag">Node.js</li><li class="tag">Express.js</li><li class="tag">MongoDB</li><li class="tag">Mongoose</li><li class="tag">EJS</li><li class="tag">Bootstrap</li></ul>
+              <div class="project-links"><a class="xlink" href="https://github.com/KrishMasand7/Task-manager-app" target="_blank" rel="noopener noreferrer">Source<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h7v7"/><path d="M13 3 6.5 9.5"/><path d="M11 10.5V13H3V5h2.5"/></svg></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+<article class="project tone tone-web" data-disclosure data-open="false">
+  <h3 class="vh">Amazon Homepage Clone</h3>
+  <div class="shell">
+    <button class="project-head" type="button" data-disclosure-btn
+            aria-expanded="false" aria-controls="proj-amazon-clone">
+      <span class="project-idx" aria-hidden="true">03</span>
+      <span>
+        <span class="project-title">
+          <h3>Amazon Homepage Clone</h3>
+          <span class="chip">Frontend</span>
+        </span>
+        <span class="project-meta">Developer<span class="sep" aria-hidden="true">—</span>Jan 2024</span>
+        <span class="project-tagline">The Amazon storefront rebuilt in plain HTML and CSS.</span>
+      </span>
+      <span class="project-toggle" aria-hidden="true"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3.5v9M3.5 8h9"/></svg></span>
+    </button>
+
+    <div class="project-body" id="proj-amazon-clone" data-disclosure-panel>
+      <div>
+        <div class="project-detail">
+          <div class="spacer" aria-hidden="true"></div>
+          <div>
+            <p class="project-summary">A static recreation of the Amazon homepage: the top bar with delivery location, search, account and cart, the deals panel beneath it, a grid of eight shopping-category cards, and the multi-column footer. There is no framework or JavaScript; it is all markup and CSS layout, with Font Awesome for the icons.</p>
+
+            
+
+            
+
+            
+
+            <div class="project-foot">
+              <ul class="stack-list"><li class="tag">HTML</li><li class="tag">CSS</li><li class="tag">Font Awesome</li></ul>
+              <div class="project-links"><a class="xlink" href="https://github.com/KrishMasand7/AmazoneClone" target="_blank" rel="noopener noreferrer">Source<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h7v7"/><path d="M13 3 6.5 9.5"/><path d="M11 10.5V13H3V5h2.5"/></svg></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article></div>
+</section>
+
+<section class="section" id="journey" aria-labelledby="journey-title">
+  <div class="shell">
+    <div class="sec-head">
+      <p class="sec-kicker mono" data-reveal>Journey</p>
+      <h2 class="sec-title" id="journey-title" data-reveal style="--d:80ms">Where I have studied and worked.</h2>
+    </div>
+
+    <ol class="timeline">
+      <span class="timeline-progress" data-timeline-progress aria-hidden="true"></span>
+      <li class="tl-item tone" data-inview>
+        <div class="tl-top">
+          <h3 class="tl-role">B.Tech, Computer Science &amp; Engineering</h3>
+          <span class="tl-period">Second year · Present</span>
+        </div>
+        <p class="tl-org"><b>Sipna College of Engineering &amp; Technology</b><span>Amravati, India</span><span class="chip">Education</span></p>
+        
+        <ul class="tl-points"><li><span>Currently in the second year of the degree, which followed the diploma.</span></li></ul>
+      </li><li class="tl-item tone tone-web" data-inview>
+        <div class="tl-top">
+          <h3 class="tl-role">Android Development Intern</h3>
+          <span class="tl-period">3 months</span>
+        </div>
+        <p class="tl-org"><b>UEF Pvt. Ltd.</b><span class="chip">Internship</span></p>
+        
+        <ul class="tl-points"><li><span>A three-month internship in Android app development, working in Java with XML layouts, completed during the diploma.</span></li></ul>
+      </li><li class="tl-item tone" data-inview>
+        <div class="tl-top">
+          <h3 class="tl-role">Diploma</h3>
+          <span class="tl-period">Completed</span>
+        </div>
+        <p class="tl-org"><b>Dr. Panjabrao Deshmukh Polytechnic</b><span>Amravati, India</span><span class="chip">Education</span></p>
+        
+        
+      </li>
+    </ol>
+
+    
+  </div>
+</section>
+
+
+<section class="section" id="skills" aria-labelledby="skills-title">
+  <div class="shell">
+    <div class="sec-head">
+      <p class="sec-kicker mono" data-reveal>Toolkit</p>
+      <h2 class="sec-title" id="skills-title" data-reveal style="--d:80ms">What I work with.</h2>
+      <p class="sec-summary" data-reveal style="--d:160ms">Grouped by what each one is for.</p>
+    </div>
+
+    <div class="skills">
+      <section class="skill-group tone tone-web" data-reveal>
+        <h3>Languages</h3>
+        <ul class="skill-items"><li class="tag">JavaScript</li><li class="tag">Python</li><li class="tag">Java</li><li class="tag">PHP</li><li class="tag">SQL</li></ul>
+      </section><section class="skill-group tone tone-web" data-reveal>
+        <h3>Frontend</h3>
+        <ul class="skill-items"><li class="tag">HTML</li><li class="tag">CSS</li><li class="tag">React</li><li class="tag">Tailwind CSS</li><li class="tag">Bootstrap</li></ul>
+      </section><section class="skill-group tone tone-web" data-reveal>
+        <h3>Backend &amp; databases</h3>
+        <ul class="skill-items"><li class="tag">Node.js</li><li class="tag">Express.js</li><li class="tag">PHP</li><li class="tag">MongoDB</li><li class="tag">SQL</li></ul>
+      </section><section class="skill-group tone tone-web" data-reveal>
+        <h3>Android</h3>
+        <ul class="skill-items"><li class="tag">Java</li><li class="tag">XML layouts</li></ul>
+      </section><section class="skill-group tone tone-ml" data-reveal>
+        <h3>Machine learning</h3>
+        <ul class="skill-items"><li class="tag">TensorFlow</li><li class="tag">PyTorch</li><li class="tag">scikit-learn</li><li class="tag">NumPy</li><li class="tag">Ensemble methods</li></ul>
+      </section><section class="skill-group tone" data-reveal>
+        <h3>Core computer science</h3>
+        <ul class="skill-items"><li class="tag">Data structures &amp; algorithms</li><li class="tag">Object-oriented programming</li><li class="tag">DBMS</li><li class="tag">Operating systems (Linux/Unix)</li><li class="tag">Computer networks (TCP/IP)</li><li class="tag">Distributed systems</li><li class="tag">System design</li></ul>
+      </section><section class="skill-group tone" data-reveal>
+        <h3>Tools &amp; practice</h3>
+        <ul class="skill-items"><li class="tag">Git / GitHub</li><li class="tag">PyMOL</li></ul>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact" aria-labelledby="contact-title">
+  <div class="shell contact-top contact-top--solo">
+    <div class="contact-copy">
+      <p class="sec-kicker mono" data-reveal>Contact</p>
+      <h2 class="contact-title" id="contact-title" data-reveal style="--d:80ms">Have an internship or a project in mind?</h2>
+      <p class="contact-body" data-reveal style="--d:160ms">I would like to hear about internships, app and web projects, and machine-learning work. Email is the quickest way to reach me, and my code is on GitHub.</p>
+
+      <div class="contact-actions" data-reveal style="--d:220ms">
+        <a class="btn magnetic" data-magnetic href="mailto:krishmasand7@gmail.com"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1.75" y="3.25" width="12.5" height="9.5" rx="1.5"/><path d="m2.5 4.5 5.5 4 5.5-4"/></svg><span>Email me</span></a>
+        <button class="btn btn--ghost magnetic" type="button" data-magnetic data-copy="krishmasand7@gmail.com">
+          <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 3.5H3.5a1 1 0 0 0-1 1v7"/></svg><span data-copy-label>Copy address</span>
+        </button>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="shell">
+    <div class="contact-links" data-reveal style="--d:280ms">
+      <a class="contact-link" href="mailto:krishmasand7@gmail.com">
+        <span class="k">Email</span><span class="v">krishmasand7@gmail.com <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="arr"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
+      <a class="contact-link" href="https://github.com/KrishMasand7" target="_blank" rel="noopener noreferrer">
+        <span class="k">GitHub</span><span class="v"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M8 0a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38l-.01-1.34c-2.22.48-2.69-1.07-2.69-1.07-.36-.93-.89-1.17-.89-1.17-.73-.5.05-.49.05-.49.8.06 1.23.83 1.23.83.71 1.23 1.87.87 2.33.67.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.19c0 .21.14.46.55.38A8 8 0 0 0 8 0Z"/></svg> github.com/KrishMasand7 <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="arr"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
+      <a class="contact-link" href="https://www.linkedin.com/in/krish-masand-63264727a/" target="_blank" rel="noopener noreferrer">
+        <span class="k">LinkedIn</span><span class="v"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M3.4 1.6a1.8 1.8 0 1 0 0 3.6 1.8 1.8 0 0 0 0-3.6ZM1.9 6.3h3V14.4h-3V6.3Zm5 0h2.87v1.11h.04c.4-.72 1.38-1.48 2.83-1.48 3.03 0 3.59 1.9 3.59 4.38v4.09h-3v-3.63c0-.86-.02-1.98-1.26-1.98-1.26 0-1.45.93-1.45 1.91v3.7h-3V6.3Z"/></svg> in/krish-masand-63264727a <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="arr"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="shell footer-inner">
+    <div>
+      <p>© <span data-year>2026</span> Krish Masand · Amravati, Maharashtra, India</p>
+      <p class="footer-note">Built as a static site: hand-written HTML, CSS and JavaScript, no framework runtime. Design adapted from <a href="https://gauravmasand.github.io" target="_blank" rel="noopener noreferrer">Gaurav Masand’s site</a>.</p>
+    </div>
+    <nav class="footer-links" aria-label="Elsewhere">
+      <a href="https://github.com/KrishMasand7" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/krish-masand-63264727a/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:krishmasand7@gmail.com">Email</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="mail-help" data-mail-help data-open="false" role="status" aria-live="polite" hidden>
+  <p class="mail-help-text"><b>No email app opened on this device.</b>
+    <span data-mail-help-note>Write to krishmasand7@gmail.com from your webmail instead.</span></p>
+  <div class="mail-help-actions">
+    <a class="btn" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=krishmasand7%40gmail.com" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1.75" y="3.25" width="12.5" height="9.5" rx="1.5"/><path d="m2.5 4.5 5.5 4 5.5-4"/></svg><span>Write in Gmail</span></a>
+    <a class="btn btn--ghost" href="https://outlook.live.com/mail/0/deeplink/compose?to=krishmasand7%40gmail.com" target="_blank" rel="noopener noreferrer"><span>Write in Outlook</span><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h7v7"/><path d="M13 3 6.5 9.5"/><path d="M11 10.5V13H3V5h2.5"/></svg></a>
+  </div>
+  <button class="mail-help-close" type="button" data-mail-help-close aria-label="Close"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
+</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+name: Build
+
+# GitHub Pages serves this repository with the classic branch builder
+# (source: main, path: /), so the generated output is committed to the
+# repository root. This workflow does not deploy — it guarantees that what is
+# committed is exactly what `node build.mjs` produces.
+
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build
+        run: node build.mjs
+
+      # sitemap.xml is left out: its lastmod is the build date, so it differs on
+      # any day after the commit without anything being out of date.
+      - name: Verify the committed output matches the build
+        run: |
+          if [ -n "$(git status --porcelain -- index.html 404.html assets robots.txt site.webmanifest favicon.svg)" ]; then
+            echo "::error::Generated output is out of date. Run 'npm run build' and commit the result."
+            git --no-pager diff --stat -- index.html 404.html assets robots.txt site.webmanifest favicon.svg
+            exit 1
+          fi
+          echo "Committed output is in sync with src/."
+
+      - name: Static checks
+        run: node scripts/verify.mjs

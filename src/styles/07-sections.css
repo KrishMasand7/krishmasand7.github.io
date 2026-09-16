@@ -1,0 +1,262 @@
+/* ── Journey timeline ─────────────────────────────────────────────────── */
+
+.timeline { position: relative; display: grid; gap: 0; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 6px; top: 0.75rem; bottom: 0.75rem;
+  width: 1px;
+  background: var(--line);
+}
+.timeline-progress {
+  position: absolute;
+  left: 6px; top: 0.75rem;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--web), var(--ml));
+  height: 0;
+  transition: height 0.15s linear;
+}
+
+.tl-item {
+  position: relative;
+  padding: clamp(1.6rem, 1.1rem + 1.6vw, 2.3rem) 0 clamp(1.6rem, 1.1rem + 1.6vw, 2.3rem) clamp(2rem, 1.4rem + 2vw, 3.2rem);
+  border-bottom: 1px solid var(--line);
+}
+.tl-item:last-child { border-bottom: 0; }
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: 0; top: clamp(2rem, 1.5rem + 1.6vw, 2.7rem);
+  width: 13px; height: 13px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 1px solid var(--line-strong);
+  transition: border-color 0.4s var(--ease), background 0.4s var(--ease), scale 0.4s var(--ease);
+}
+.tl-item.is-in::before { border-color: var(--tone-fg); background: var(--tone-fg); scale: 1.05; }
+
+.tl-top { display: flex; flex-wrap: wrap; gap: 0.6rem 1rem; align-items: baseline; justify-content: space-between; }
+.tl-role { font-size: var(--t-h4); font-weight: 600; letter-spacing: -0.018em; color: var(--fg); }
+.tl-period { font-family: var(--font-mono); font-size: var(--t-mono); color: var(--fg-3); white-space: nowrap; }
+.tl-org { margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem 0.75rem; align-items: baseline; }
+.tl-org b { font-family: var(--font-serif); font-size: 1.06rem; font-weight: 400; color: var(--tone-fg); }
+.tl-org span { color: var(--fg-4); font-size: 0.82rem; }
+.tl-advisor { margin-top: 0.65rem; color: var(--fg-3); font-size: 0.82rem; font-style: italic; }
+.tl-points { margin-top: 1.15rem; display: grid; gap: 0.7rem; max-width: 68ch; }
+.tl-points li {
+  display: grid; grid-template-columns: 12px minmax(0, 1fr); gap: 0.75rem;
+  color: var(--fg-2); font-size: 0.875rem; line-height: 1.68; text-wrap: pretty;
+}
+.tl-points li::before {
+  content: ''; width: 4px; height: 4px; border-radius: 50%;
+  background: var(--fg-5); margin-top: 0.62em; translate: 4px 0;
+}
+
+/* Certifications sit under the timeline, and only render when there are any. */
+.certs {
+  margin-top: 2.5rem; display: grid; gap: 1px;
+  background: var(--line); border: 1px solid var(--line);
+  border-radius: var(--r-lg); overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+.cert {
+  background: var(--ink-2);
+  padding: 1.15rem clamp(1.2rem, 1rem + 1vw, 1.8rem);
+  display: flex; flex-wrap: wrap; gap: 0.6rem 1.25rem; align-items: baseline; justify-content: space-between;
+  transition: background 0.25s var(--ease);
+}
+.cert:hover { background: var(--surface); }
+.cert-name { font-size: 0.9rem; color: var(--fg); display: inline-flex; align-items: center; gap: 0.5rem; }
+.cert-name svg { opacity: 0.55; }
+.cert-score { font-family: var(--font-mono); font-size: var(--t-mono); color: var(--ml); }
+
+/* ── Honours (rendered only when work.mjs lists any) ─────────────────── */
+
+.filters { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 2.25rem; }
+.filter {
+  padding: 0.42rem 0.95rem;
+  border-radius: 100px;
+  border: 1px solid var(--line-mid);
+  color: var(--fg-3);
+  font-size: 0.8rem;
+  transition: color 0.22s var(--ease), border-color 0.22s var(--ease), background 0.22s var(--ease);
+}
+.filter:hover { color: var(--fg); border-color: var(--line-strong); }
+.filter[aria-pressed='true'] { background: var(--fg); color: var(--ink); border-color: var(--fg); font-weight: 600; }
+.filter .n { opacity: 0.55; margin-left: 0.35rem; font-variant-numeric: tabular-nums; }
+
+.honours-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 1rem;
+}
+
+.honour {
+  position: relative;
+  display: flex; flex-direction: column;
+  gap: 0.8rem;
+  padding: 1.5rem 1.5rem 1.65rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--ink-2);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.3s var(--ease), background 0.3s var(--ease),
+              box-shadow 0.3s var(--ease), transform 0.4s var(--ease);
+}
+.honour::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 0%),
+              color-mix(in srgb, var(--rank-c) 9%, transparent), transparent 62%);
+  opacity: 0;
+  transition: opacity 0.35s var(--ease);
+  pointer-events: none;
+}
+.honour:hover {
+  border-color: var(--line-mid);
+  background: var(--surface);
+  box-shadow: var(--shadow-lift);
+  transform: translateY(-3px);
+}
+.honour:hover::before { opacity: 1; }
+.honour[hidden] { display: none; }
+
+.honour { --rank-c: var(--fg-2); }
+.honour[data-tier='gold'] { --rank-c: var(--ml); }
+.honour[data-tier='silver'] { --rank-c: var(--tier-silver); }
+.honour[data-tier='bronze'] { --rank-c: var(--tier-bronze); }
+
+.honour-rank {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  color: var(--rank-c);
+  font-family: var(--font-mono);
+  font-size: var(--t-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  width: fit-content;
+}
+.honour-rank::before {
+  content: ''; width: 6px; height: 6px; rotate: 45deg;
+  background: var(--rank-c);
+}
+.honour h3 {
+  font-family: var(--font-serif);
+  font-size: 1.16rem; font-weight: 400; line-height: 1.24; letter-spacing: -0.018em;
+  text-wrap: balance;
+}
+.honour-meta { color: var(--fg-3); font-size: 0.795rem; line-height: 1.5; }
+.honour-meta .scale { color: var(--fg); font-weight: 500; }
+.honour p { color: var(--fg-3); font-size: 0.835rem; line-height: 1.65; margin-top: auto; padding-top: 0.35rem; text-wrap: pretty; }
+
+/* ── Skills ───────────────────────────────────────────────────────────── */
+
+.skills { display: grid; gap: 0; }
+.skill-group {
+  display: grid;
+  grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+  gap: 0.85rem 2.5rem;
+  padding: clamp(1.4rem, 1.1rem + 1.2vw, 2rem) 0;
+  border-top: 1px solid var(--line);
+  align-items: start;
+}
+.skill-group:last-child { border-bottom: 1px solid var(--line); }
+.skill-group h3 {
+  font-size: 0.94rem; font-weight: 600; letter-spacing: -0.01em;
+  display: flex; align-items: center; gap: 0.65rem;
+}
+.skill-group h3::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--tone-fg); flex: none;
+}
+.skill-items { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+
+@media (max-width: 700px) { .skill-group { grid-template-columns: minmax(0, 1fr); } }
+
+/* ── Contact ──────────────────────────────────────────────────────────── */
+
+.contact { text-align: left; }
+.contact-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, clamp(14rem, 24vw, 20rem));
+  gap: clamp(2rem, 1rem + 4vw, 4.5rem);
+  align-items: end;
+}
+/* No second portrait: the copy takes the whole row. */
+.contact-top--solo { grid-template-columns: minmax(0, 1fr); }
+@media (max-width: 820px) {
+  .contact-top { grid-template-columns: minmax(0, 1fr); }
+  .contact-top .portrait { max-width: 19rem; margin-top: 2.75rem; }
+}
+.contact-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.1rem, 1.35rem + 3.3vw, 4.4rem);
+  font-weight: 400; letter-spacing: -0.034em; line-height: 1.02;
+  max-width: 20ch;
+  text-wrap: balance;
+}
+.contact-body { margin-top: 1.75rem; color: var(--fg-2); font-size: var(--t-lead); line-height: 1.6; max-width: 54ch; text-wrap: pretty; }
+.contact-actions { margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: 0.7rem; }
+
+.contact-links {
+  margin-top: clamp(3rem, 2rem + 3vw, 4.5rem);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 1px;
+  background: var(--line);
+  border-block: 1px solid var(--line);
+}
+.contact-link {
+  background: var(--ink);
+  padding: 1.35rem 1.5rem 1.5rem;
+  display: grid; gap: 0.4rem;
+  transition: background 0.3s var(--ease);
+}
+.contact-link:hover { background: var(--surface); }
+.contact-link .k { color: var(--fg-4); font-family: var(--font-mono); font-size: var(--t-mono); }
+.contact-link .v {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.95rem; color: var(--fg); letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+}
+.contact-link .v svg { flex: none; }
+.contact-link .v .arr { opacity: 0; translate: -4px 0; transition: opacity 0.25s var(--ease), translate 0.25s var(--ease); }
+.contact-link:hover .v .arr { opacity: 0.6; translate: 0 0; }
+
+/* Webmail fallback for mailto links, shown by main.js when no email app opens. */
+.mail-help {
+  position: fixed;
+  left: 50%;
+  bottom: max(1.25rem, env(safe-area-inset-bottom));
+  z-index: 150;
+  width: min(100% - 2rem, 32rem);
+  display: grid;
+  gap: 0.95rem;
+  padding: 1.15rem 1.25rem 1.25rem;
+  background: var(--surface-2);
+  border: 1px solid var(--line-mid);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-lift);
+  opacity: 0;
+  translate: -50% 0.75rem;
+  transition: opacity 0.3s var(--ease), translate 0.3s var(--ease);
+}
+.mail-help[hidden] { display: none; }
+.mail-help[data-open='true'] { opacity: 1; translate: -50% 0; }
+.mail-help-text { color: var(--fg-2); font-size: var(--t-sm); line-height: 1.55; padding-right: 2.25rem; overflow-wrap: anywhere; }
+.mail-help-text b { display: block; color: var(--fg); font-weight: 600; margin-bottom: 0.2rem; }
+.mail-help-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.mail-help-actions .btn { padding: 0.58rem 1.05rem; font-size: 0.8rem; }
+.mail-help-close {
+  position: absolute; top: 0.65rem; right: 0.65rem;
+  display: grid; place-items: center;
+  width: 32px; height: 32px;
+  border-radius: 100px;
+  color: var(--fg-3);
+  transition: color 0.2s var(--ease), background 0.2s var(--ease);
+}
+.mail-help-close:hover { color: var(--fg); background: var(--surface-3); }
+
+.footer-note a { border-bottom: 1px solid var(--line-mid); transition: color 0.2s var(--ease), border-color 0.2s var(--ease); }
+.footer-note a:hover { color: var(--fg); border-color: var(--fg-3); }
